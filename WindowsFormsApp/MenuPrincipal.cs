@@ -30,7 +30,8 @@ namespace WindowsFormsApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            using (Administracion ventanaAdministracion = new Administracion(Nombre.Text))
+                ventanaAdministracion.ShowDialog();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
