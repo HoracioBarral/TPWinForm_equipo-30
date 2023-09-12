@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,7 @@ namespace administrador_datos
         {
             List<Articulo> listaArt = new List<Articulo>();
             AccesoDatos datos= new AccesoDatos();
-            datos.SetConsulta("select a.id,a.codigo,a.nombre,a.descripcion,a.precio,m.Descripcion marca,c.Descripcion tipo from articulos a, marcas m, categorias c where a.IdMarca=m.Id and a.IdCategoria=c.Id");
+            datos.SetConsulta("select a.id,a.Codigo,a.Nombre,a.Descripcion,a.Precio,c.Descripcion Tipo,m.Descripcion Marca from articulos a left join categorias c on a.IdCategoria=c.Id inner join marcas m on a.IdMarca=m.Id");
             try
             {
                 datos.Consulta_A_DB();
@@ -22,16 +23,23 @@ namespace administrador_datos
                 {
                     Articulo art = new Articulo();
                     art.Id = (int)datos.Lector["id"];
-                    art.Codigo = (string)datos.Lector["codigo"];
-                    art.Nombre = (string)datos.Lector["nombre"];
-                    art.Descripcion = (string)datos.Lector["descripcion"];
-                    //art.Precio = (float)datos.Lector["precio"];
-                    art.NombreMarca = new Marca();
-                    art.NombreMarca.Descripcion = (string)datos.Lector["marca"];
+                    art.Codigo = (string)datos.Lector["Codigo"];
+                    art.Nombre = (string)datos.Lector["Nombre"];
+                    art.Descripcion = (string)datos.Lector["Descripcion"];
+                    art.Precio = (decimal)datos.Lector["Precio"];
                     art.TipoCategoria = new Categoria();
-                    art.TipoCategoria.Descripcion = (string)datos.Lector["tipo"];
-                    art.Imagen = new List<Imagen>();
-                    art.Imagen=obtenerImagenes(art.Id);
+
+                    if (!(datos.Lector["Tipo"] is DBNull))
+                    {
+                        art.TipoCategoria.Descripcion = (string)datos.Lector["Tipo"];
+                    }
+                    else
+                        art.TipoCategoria.Descripcion = "No tiene";
+
+                    art.NombreMarca = new Marca();
+                    art.NombreMarca.Descripcion = (string)datos.Lector["Marca"];
+                    art.Url = new List<string>();
+                    art.Url = obtenerImagenes(art.Id);
                     listaArt.Add(art);
                 }
                 return listaArt;
@@ -48,22 +56,20 @@ namespace administrador_datos
             
         }
 
-        public List<Imagen> obtenerImagenes(int id)
+        public List<string> obtenerImagenes(int id)
         {
-            List<Imagen> imagenes = new List<Imagen>();
+            List<string> imagenes = new List<string>();
             AccesoDatos datos2 = new AccesoDatos();
-            datos2.SetConsulta("select i.id,i.imagenUrl,a.Id articulo from imagenes i, articulo a where a.Id=i.IdArticulo ");
+            datos2.SetConsulta("select i.id,i.imagenUrl,a.Id articulo from imagenes i, articulos a where a.Id=i.IdArticulo");
             try
             {
                 datos2.Consulta_A_DB();
                 while (datos2.Lector.Read())
                 {
-                    Imagen imagen = new Imagen();
-                    
-                    if (datos2.Lector["articulo"].Equals(id))
+                    int articulo = (int)datos2.Lector["articulo"];
+                    if (articulo==id)
                     {
-                        imagen.Url=(string)datos2.Lector["imagenUrl"];
-                        imagenes.Add(imagen);
+                        imagenes.Add((string)datos2.Lector["imagenUrl"]);
                     }
                 }
                 return imagenes;

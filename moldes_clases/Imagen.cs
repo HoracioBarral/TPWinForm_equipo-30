@@ -8,9 +8,9 @@ namespace moldes_clases
 {
     public class Imagen
     {
-        //public int Id { get; set; }
+        public int Id { get; set; }
 
-        //public int IdArticulo { get; }
+        public int IdArticulo { get; }
 
         public string Url { get; set; }
 

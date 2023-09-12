@@ -30,7 +30,9 @@
         {
             this.dgvArticulos = new System.Windows.Forms.DataGridView();
             this.btnListar = new System.Windows.Forms.Button();
+            this.ptbImagen = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbImagen)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvArticulos
@@ -51,16 +53,27 @@
             this.btnListar.UseVisualStyleBackColor = true;
             this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
             // 
+            // ptbImagen
+            // 
+            this.ptbImagen.Location = new System.Drawing.Point(497, 34);
+            this.ptbImagen.Name = "ptbImagen";
+            this.ptbImagen.Size = new System.Drawing.Size(146, 150);
+            this.ptbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbImagen.TabIndex = 2;
+            this.ptbImagen.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.ptbImagen);
             this.Controls.Add(this.btnListar);
             this.Controls.Add(this.dgvArticulos);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbImagen)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -69,6 +82,7 @@
 
         private System.Windows.Forms.DataGridView dgvArticulos;
         private System.Windows.Forms.Button btnListar;
+        private System.Windows.Forms.PictureBox ptbImagen;
     }
 }
 
