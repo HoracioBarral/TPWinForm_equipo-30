@@ -29,7 +29,13 @@
         private void InitializeComponent()
         {
             this.saludo = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnVolver = new System.Windows.Forms.Button();
+            this.btnListaArticulo = new System.Windows.Forms.Button();
+            this.btnBusquedaArticulo = new System.Windows.Forms.Button();
+            this.btnAgregarArticulo = new System.Windows.Forms.Button();
+            this.btnModificarArticulo = new System.Windows.Forms.Button();
+            this.btnEliminarArticulo = new System.Windows.Forms.Button();
+            this.btnDetalleArticulo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // saludo
@@ -43,14 +49,88 @@
             this.saludo.Text = "Bienvenido , ";
             this.saludo.Click += new System.EventHandler(this.Administracion_load);
             // 
-            // button1
+            // btnVolver
             // 
-            this.button1.Location = new System.Drawing.Point(710, 417);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnVolver.Location = new System.Drawing.Point(706, 404);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(86, 45);
+            this.btnVolver.TabIndex = 1;
+            this.btnVolver.Text = "Volver";
+            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            // 
+            // btnListaArticulo
+            // 
+            this.btnListaArticulo.BackColor = System.Drawing.Color.Silver;
+            this.btnListaArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnListaArticulo.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnListaArticulo.Location = new System.Drawing.Point(316, 112);
+            this.btnListaArticulo.Name = "btnListaArticulo";
+            this.btnListaArticulo.Size = new System.Drawing.Size(130, 43);
+            this.btnListaArticulo.TabIndex = 2;
+            this.btnListaArticulo.Text = "Listado de articulos";
+            this.btnListaArticulo.UseVisualStyleBackColor = false;
+            // 
+            // btnBusquedaArticulo
+            // 
+            this.btnBusquedaArticulo.BackColor = System.Drawing.Color.Silver;
+            this.btnBusquedaArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBusquedaArticulo.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnBusquedaArticulo.Location = new System.Drawing.Point(316, 171);
+            this.btnBusquedaArticulo.Name = "btnBusquedaArticulo";
+            this.btnBusquedaArticulo.Size = new System.Drawing.Size(130, 40);
+            this.btnBusquedaArticulo.TabIndex = 3;
+            this.btnBusquedaArticulo.Text = "Busqueda de articulos";
+            this.btnBusquedaArticulo.UseVisualStyleBackColor = false;
+            // 
+            // btnAgregarArticulo
+            // 
+            this.btnAgregarArticulo.BackColor = System.Drawing.Color.Silver;
+            this.btnAgregarArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarArticulo.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnAgregarArticulo.Location = new System.Drawing.Point(316, 231);
+            this.btnAgregarArticulo.Name = "btnAgregarArticulo";
+            this.btnAgregarArticulo.Size = new System.Drawing.Size(130, 36);
+            this.btnAgregarArticulo.TabIndex = 4;
+            this.btnAgregarArticulo.Text = "Agregar articulo";
+            this.btnAgregarArticulo.UseVisualStyleBackColor = false;
+            // 
+            // btnModificarArticulo
+            // 
+            this.btnModificarArticulo.BackColor = System.Drawing.Color.Silver;
+            this.btnModificarArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificarArticulo.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnModificarArticulo.Location = new System.Drawing.Point(316, 287);
+            this.btnModificarArticulo.Name = "btnModificarArticulo";
+            this.btnModificarArticulo.Size = new System.Drawing.Size(130, 38);
+            this.btnModificarArticulo.TabIndex = 5;
+            this.btnModificarArticulo.Text = "Modificar articulos";
+            this.btnModificarArticulo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnModificarArticulo.UseVisualStyleBackColor = false;
+            // 
+            // btnEliminarArticulo
+            // 
+            this.btnEliminarArticulo.BackColor = System.Drawing.Color.Silver;
+            this.btnEliminarArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarArticulo.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnEliminarArticulo.Location = new System.Drawing.Point(316, 343);
+            this.btnEliminarArticulo.Name = "btnEliminarArticulo";
+            this.btnEliminarArticulo.Size = new System.Drawing.Size(130, 41);
+            this.btnEliminarArticulo.TabIndex = 6;
+            this.btnEliminarArticulo.Text = "Eliminar Articulo";
+            this.btnEliminarArticulo.UseVisualStyleBackColor = false;
+            // 
+            // btnDetalleArticulo
+            // 
+            this.btnDetalleArticulo.BackColor = System.Drawing.Color.Silver;
+            this.btnDetalleArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDetalleArticulo.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnDetalleArticulo.Location = new System.Drawing.Point(316, 404);
+            this.btnDetalleArticulo.Name = "btnDetalleArticulo";
+            this.btnDetalleArticulo.Size = new System.Drawing.Size(130, 45);
+            this.btnDetalleArticulo.TabIndex = 7;
+            this.btnDetalleArticulo.Text = "Detalle de articulo";
+            this.btnDetalleArticulo.UseVisualStyleBackColor = false;
             // 
             // Administracion
             // 
@@ -58,7 +138,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Peru;
             this.ClientSize = new System.Drawing.Size(804, 461);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnDetalleArticulo);
+            this.Controls.Add(this.btnEliminarArticulo);
+            this.Controls.Add(this.btnModificarArticulo);
+            this.Controls.Add(this.btnAgregarArticulo);
+            this.Controls.Add(this.btnBusquedaArticulo);
+            this.Controls.Add(this.btnListaArticulo);
+            this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.saludo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Administracion";
@@ -73,6 +159,12 @@
         #endregion
 
         private System.Windows.Forms.Label saludo;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnVolver;
+        private System.Windows.Forms.Button btnListaArticulo;
+        private System.Windows.Forms.Button btnBusquedaArticulo;
+        private System.Windows.Forms.Button btnAgregarArticulo;
+        private System.Windows.Forms.Button btnModificarArticulo;
+        private System.Windows.Forms.Button btnEliminarArticulo;
+        private System.Windows.Forms.Button btnDetalleArticulo;
     }
 }
