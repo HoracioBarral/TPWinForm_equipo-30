@@ -25,8 +25,32 @@ namespace WindowsFormsApp
         {
             
             ListaArticulos art = new ListaArticulos();
-            articulos = art.listar();
-            dgvArticulos.DataSource = articulos;
+            try
+            {
+                articulos = art.listar();
+                dgvArticulos.DataSource = articulos;
+                CargarImagen(articulos[0].Url[0]);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+            
+        }
+
+        private void CargarImagen(string urlImagen)
+        {
+            try
+            {
+                ptbImagen.Load(urlImagen);
+            }
+            catch (Exception)
+            {
+
+                ptbImagen.Load("https://efectocolibri.com/wp-content/uploads/2021/01/placeholder.png");
+            }
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
