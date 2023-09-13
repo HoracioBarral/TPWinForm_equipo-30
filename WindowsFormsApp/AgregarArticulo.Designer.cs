@@ -54,7 +54,7 @@
             this.label1.Size = new System.Drawing.Size(70, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre: ";
-           
+            // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(153, 79);
@@ -81,7 +81,6 @@
             this.label3.Size = new System.Drawing.Size(98, 16);
             this.label3.TabIndex = 3;
             this.label3.Text = "Descripcion: ";
-           
             // 
             // label4
             // 
@@ -184,7 +183,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Peru;
-            this.ClientSize = new System.Drawing.Size(804, 602);
+            this.ClientSize = new System.Drawing.Size(804, 611);
             this.Controls.Add(this.btnAgregarArticulo);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.textBox4);

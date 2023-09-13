@@ -10,20 +10,16 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp
 {
-    public partial class AgregarArticulo : Form
+    public partial class ModificarArticulo : Form
     {
-        public AgregarArticulo()
+        public ModificarArticulo()
         {
             InitializeComponent();
         }
 
-        
-
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            this.Close();   
+            this.Close();
         }
-
-       
     }
 }

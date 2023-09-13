@@ -64,7 +64,7 @@
             this.btnListaArticulo.BackColor = System.Drawing.Color.Silver;
             this.btnListaArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnListaArticulo.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnListaArticulo.Location = new System.Drawing.Point(316, 112);
+            this.btnListaArticulo.Location = new System.Drawing.Point(316, 108);
             this.btnListaArticulo.Name = "btnListaArticulo";
             this.btnListaArticulo.Size = new System.Drawing.Size(130, 43);
             this.btnListaArticulo.TabIndex = 2;
@@ -76,7 +76,7 @@
             this.btnBusquedaArticulo.BackColor = System.Drawing.Color.Silver;
             this.btnBusquedaArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBusquedaArticulo.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnBusquedaArticulo.Location = new System.Drawing.Point(316, 171);
+            this.btnBusquedaArticulo.Location = new System.Drawing.Point(316, 166);
             this.btnBusquedaArticulo.Name = "btnBusquedaArticulo";
             this.btnBusquedaArticulo.Size = new System.Drawing.Size(130, 40);
             this.btnBusquedaArticulo.TabIndex = 3;
@@ -88,25 +88,26 @@
             this.btnAgregarArticulo.BackColor = System.Drawing.Color.Silver;
             this.btnAgregarArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregarArticulo.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnAgregarArticulo.Location = new System.Drawing.Point(316, 231);
+            this.btnAgregarArticulo.Location = new System.Drawing.Point(316, 222);
             this.btnAgregarArticulo.Name = "btnAgregarArticulo";
             this.btnAgregarArticulo.Size = new System.Drawing.Size(130, 36);
             this.btnAgregarArticulo.TabIndex = 4;
             this.btnAgregarArticulo.Text = "Agregar articulo";
             this.btnAgregarArticulo.UseVisualStyleBackColor = false;
+            this.btnAgregarArticulo.Click += new System.EventHandler(this.btnAgregarArticulo_Click);
             // 
             // btnModificarArticulo
             // 
             this.btnModificarArticulo.BackColor = System.Drawing.Color.Silver;
             this.btnModificarArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificarArticulo.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnModificarArticulo.Location = new System.Drawing.Point(316, 287);
+            this.btnModificarArticulo.Location = new System.Drawing.Point(316, 273);
             this.btnModificarArticulo.Name = "btnModificarArticulo";
-            this.btnModificarArticulo.Size = new System.Drawing.Size(130, 38);
+            this.btnModificarArticulo.Size = new System.Drawing.Size(130, 49);
             this.btnModificarArticulo.TabIndex = 5;
-            this.btnModificarArticulo.Text = "Modificar articulos";
-            this.btnModificarArticulo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnModificarArticulo.Text = "Modificar articulo\r\n";
             this.btnModificarArticulo.UseVisualStyleBackColor = false;
+            this.btnModificarArticulo.Click += new System.EventHandler(this.btnModificarArticulo_Click);
             // 
             // btnEliminarArticulo
             // 

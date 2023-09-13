@@ -30,5 +30,17 @@ namespace WindowsFormsApp
         {
             this.Close();
         }
+
+        private void btnAgregarArticulo_Click(object sender, EventArgs e)
+        {
+            using (AgregarArticulo ventanaArticulo = new AgregarArticulo())
+                ventanaArticulo.ShowDialog();
+        }
+
+        private void btnModificarArticulo_Click(object sender, EventArgs e)
+        {
+            using (ModificarArticulo ventanaMArticulo = new ModificarArticulo())
+                ventanaMArticulo.ShowDialog();
+        }
     }
 }
