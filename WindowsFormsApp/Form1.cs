@@ -18,44 +18,62 @@ namespace WindowsFormsApp
         {
             InitializeComponent();
         }
-
+        private int indice = 0;
         private List<Articulo> articulos;
+        private Articulo seleccion;
+        private int i;
 
         private void btnListar_Click(object sender, EventArgs e)
         {
-            
-            ListaArticulos art = new ListaArticulos();
             try
             {
+                ListaArticulos art = new ListaArticulos();
                 articulos = art.listar();
                 dgvArticulos.DataSource = articulos;
-                CargarImagen(articulos[0].Url[0]);
             }
             catch (Exception ex)
             {
 
                 MessageBox.Show(ex.ToString());
             }
-            
+
         }
 
-        private void CargarImagen(string urlImagen)
+        private void CargarImagen(Articulo aux)
         {
-            try
+            List<Imagen> imagenes = aux.Url;
+            i = imagenes.Count;
+            if (indice < i)
             {
-                ptbImagen.Load(urlImagen);
-            }
-            catch (Exception)
-            {
+                btnCambiarImagen.Enabled = Enabled;
+                try
+                {
+                    ptbImagen.Load(imagenes[indice].UrlImagen);
 
-                ptbImagen.Load("https://efectocolibri.com/wp-content/uploads/2021/01/placeholder.png");
+                }
+                catch (Exception)
+                {
+
+                    ptbImagen.Load("https://efectocolibri.com/wp-content/uploads/2021/01/placeholder.png");
+                }
             }
-            
+            else
+            {
+                btnCambiarImagen.Enabled = false;
+            }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
         {
+            indice = 0;
+            seleccion = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+            CargarImagen(seleccion);
+        }
 
+        private void btnCambiarImagen_Click(object sender, EventArgs e)
+        {
+            indice++;
+            CargarImagen(seleccion);
         }
     }
 }

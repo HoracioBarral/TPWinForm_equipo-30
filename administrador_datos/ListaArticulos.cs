@@ -38,7 +38,7 @@ namespace administrador_datos
 
                     art.NombreMarca = new Marca();
                     art.NombreMarca.Descripcion = (string)datos.Lector["Marca"];
-                    art.Url = new List<string>();
+                    art.Url = new List<Imagen>();
                     art.Url = obtenerImagenes(art.Id);
                     listaArt.Add(art);
                 }
@@ -56,9 +56,9 @@ namespace administrador_datos
             
         }
 
-        public List<string> obtenerImagenes(int id)
+        public List<Imagen> obtenerImagenes(int id)
         {
-            List<string> imagenes = new List<string>();
+            List<Imagen> imagenes = new List<Imagen>();
             AccesoDatos datos2 = new AccesoDatos();
             datos2.SetConsulta("select i.id,i.imagenUrl,a.Id articulo from imagenes i, articulos a where a.Id=i.IdArticulo");
             try
@@ -66,10 +66,14 @@ namespace administrador_datos
                 datos2.Consulta_A_DB();
                 while (datos2.Lector.Read())
                 {
+                    Imagen aux = new Imagen();
                     int articulo = (int)datos2.Lector["articulo"];
                     if (articulo==id)
                     {
-                        imagenes.Add((string)datos2.Lector["imagenUrl"]);
+                        aux.Id = (int)datos2.Lector["id"];
+                        aux.IdArticulo = articulo;
+                        aux.UrlImagen = (string)datos2.Lector["imagenUrl"];
+                        imagenes.Add(aux);
                     }
                 }
                 return imagenes;

@@ -10,9 +10,9 @@ namespace moldes_clases
     {
         public int Id { get; set; }
 
-        public int IdArticulo { get; }
+        public int IdArticulo { get; set; }
 
-        public string Url { get; set; }
+        public string UrlImagen { get; set; }
 
     }
 }

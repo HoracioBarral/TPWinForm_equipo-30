@@ -31,6 +31,7 @@
             this.dgvArticulos = new System.Windows.Forms.DataGridView();
             this.btnListar = new System.Windows.Forms.Button();
             this.ptbImagen = new System.Windows.Forms.PictureBox();
+            this.btnCambiarImagen = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbImagen)).BeginInit();
             this.SuspendLayout();
@@ -62,17 +63,28 @@
             this.ptbImagen.TabIndex = 2;
             this.ptbImagen.TabStop = false;
             // 
+            // btnCambiarImagen
+            // 
+            this.btnCambiarImagen.Location = new System.Drawing.Point(497, 207);
+            this.btnCambiarImagen.Name = "btnCambiarImagen";
+            this.btnCambiarImagen.Size = new System.Drawing.Size(106, 23);
+            this.btnCambiarImagen.TabIndex = 3;
+            this.btnCambiarImagen.Text = "Cambiar Imagen";
+            this.btnCambiarImagen.UseVisualStyleBackColor = true;
+            this.btnCambiarImagen.Click += new System.EventHandler(this.btnCambiarImagen_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnCambiarImagen);
             this.Controls.Add(this.ptbImagen);
             this.Controls.Add(this.btnListar);
             this.Controls.Add(this.dgvArticulos);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            //this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbImagen)).EndInit();
             this.ResumeLayout(false);
@@ -84,6 +96,7 @@
         private System.Windows.Forms.DataGridView dgvArticulos;
         private System.Windows.Forms.Button btnListar;
         private System.Windows.Forms.PictureBox ptbImagen;
+        private System.Windows.Forms.Button btnCambiarImagen;
     }
 }
 
