@@ -9,18 +9,31 @@ namespace administrador_datos
 {
     public class ListaMarcas
     {
-        public void Listar()
+        public List<Marca> Listar()
         {
             List<Marca> listadoMarcas = new List<Marca>();
             AccesoDatos datos = new AccesoDatos();
             datos.SetConsulta("select id,Descripcion from marcas");
 
-            datos.Consulta_A_DB();
-            while (datos.Lector != null)
+            try
             {
-                Marca marca = new Marca();
-                marca.Id = (int)datos.Lector["id"];
-                marca.Descripcion = (string)datos.Lector["Descripcion"];
+                datos.Consulta_A_DB();
+                while (datos.Lector != null)
+                {
+                   Marca marca = new Marca();
+                   marca.Id = (int)datos.Lector["id"];
+                   marca.Descripcion = (string)datos.Lector["Descripcion"];
+                   listadoMarcas.Add(marca);
+                }
+                return listadoMarcas;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConexion();
             }
         }
 

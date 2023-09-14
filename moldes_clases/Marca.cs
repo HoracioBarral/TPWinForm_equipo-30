@@ -8,7 +8,7 @@ namespace moldes_clases
 {
     public class Marca
     {
-        //public int Id { set; get; }
+        public int Id { set; get; }
 
         public string Descripcion { set; get; }
 

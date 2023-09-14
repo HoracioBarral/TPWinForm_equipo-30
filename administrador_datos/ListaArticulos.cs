@@ -34,7 +34,7 @@ namespace administrador_datos
                         art.TipoCategoria.Descripcion = (string)datos.Lector["Tipo"];
                     }
                     else
-                        art.TipoCategoria.Descripcion = "No tiene";
+                        art.TipoCategoria.Descripcion = "Generico";
 
                     art.NombreMarca = new Marca();
                     art.NombreMarca.Descripcion = (string)datos.Lector["Marca"];
