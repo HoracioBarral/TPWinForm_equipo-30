@@ -12,7 +12,7 @@ namespace moldes_clases
 
         public int IdArticulo { get; set; }
 
-        public string UrlImagen { get; set; }
+        public string Url { get; set; }
 
     }
 }

@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using moldes_clases;
+using administrador_datos;
 
 namespace WindowsFormsApp
 {
@@ -41,6 +43,12 @@ namespace WindowsFormsApp
         {
             using (ModificarArticulo ventanaMArticulo = new ModificarArticulo())
                 ventanaMArticulo.ShowDialog();
+        }
+
+        private void btnListaArticulo_Click(object sender, EventArgs e)
+        {
+            using (Form1 ventanaListado = new Form1())
+                ventanaListado.ShowDialog();
         }
     }
 }

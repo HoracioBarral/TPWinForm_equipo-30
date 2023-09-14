@@ -70,6 +70,7 @@
             this.btnListaArticulo.TabIndex = 2;
             this.btnListaArticulo.Text = "Listado de articulos";
             this.btnListaArticulo.UseVisualStyleBackColor = false;
+            this.btnListaArticulo.Click += new System.EventHandler(this.btnListaArticulo_Click);
             // 
             // btnBusquedaArticulo
             // 

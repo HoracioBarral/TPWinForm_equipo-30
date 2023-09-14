@@ -17,17 +17,18 @@ namespace WindowsFormsApp
         public Form1()
         {
             InitializeComponent();
+            ListarArticulos();
         }
         private int indice = 0;
         private List<Articulo> articulos;
         private Articulo seleccion;
         private int i;
 
-        private void btnListar_Click(object sender, EventArgs e)
+        private void ListarArticulos()
         {
+            ListaArticulos art = new ListaArticulos();
             try
             {
-                ListaArticulos art = new ListaArticulos();
                 articulos = art.listar();
                 dgvArticulos.DataSource = articulos;
             }
@@ -39,16 +40,17 @@ namespace WindowsFormsApp
 
         }
 
+
         private void CargarImagen(Articulo aux)
         {
-            List<Imagen> imagenes = aux.Url;
+            List<Imagen> imagenes = aux.UrlImagen;
             i = imagenes.Count;
             if (indice < i)
             {
-                btnCambiarImagen.Enabled = Enabled;
+                btnCambiarImagen.Enabled = true;
                 try
                 {
-                    ptbImagen.Load(imagenes[indice].UrlImagen);
+                    ptbImagen.Load(imagenes[indice].Url);
 
                 }
                 catch (Exception)
@@ -59,8 +61,14 @@ namespace WindowsFormsApp
             }
             else
             {
-                btnCambiarImagen.Enabled = false;
+               btnCambiarImagen.Enabled = false;
             }
+        }
+
+        private void btnCambiarImagen_Click(object sender, EventArgs e)
+        {
+            indice++;
+            CargarImagen(seleccion);
         }
 
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
@@ -70,10 +78,5 @@ namespace WindowsFormsApp
             CargarImagen(seleccion);
         }
 
-        private void btnCambiarImagen_Click(object sender, EventArgs e)
-        {
-            indice++;
-            CargarImagen(seleccion);
-        }
     }
 }

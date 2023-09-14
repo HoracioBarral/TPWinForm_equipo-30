@@ -8,6 +8,8 @@ using System.Runtime.Remoting;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using moldes_clases;
+using administrador_datos;
 
 namespace WindowsFormsApp
 {

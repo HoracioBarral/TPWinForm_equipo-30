@@ -20,7 +20,7 @@ namespace moldes_clases
 
         public Categoria TipoCategoria { set; get; }
 
-        public List<Imagen> Url { set; get; }
+        public List<Imagen> UrlImagen { set; get; }
 
         public decimal Precio { get; set; }
 

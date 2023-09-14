@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.dgvArticulos = new System.Windows.Forms.DataGridView();
-            this.btnListar = new System.Windows.Forms.Button();
             this.ptbImagen = new System.Windows.Forms.PictureBox();
             this.btnCambiarImagen = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
@@ -43,16 +42,7 @@
             this.dgvArticulos.Name = "dgvArticulos";
             this.dgvArticulos.Size = new System.Drawing.Size(406, 150);
             this.dgvArticulos.TabIndex = 0;
-            // 
-            // btnListar
-            // 
-            this.btnListar.Location = new System.Drawing.Point(45, 216);
-            this.btnListar.Name = "btnListar";
-            this.btnListar.Size = new System.Drawing.Size(92, 23);
-            this.btnListar.TabIndex = 1;
-            this.btnListar.Text = "Listar";
-            this.btnListar.UseVisualStyleBackColor = true;
-            this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
+            this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
             // 
             // ptbImagen
             // 
@@ -80,11 +70,9 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnCambiarImagen);
             this.Controls.Add(this.ptbImagen);
-            this.Controls.Add(this.btnListar);
             this.Controls.Add(this.dgvArticulos);
             this.Name = "Form1";
             this.Text = "Form1";
-            //this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbImagen)).EndInit();
             this.ResumeLayout(false);
@@ -94,7 +82,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvArticulos;
-        private System.Windows.Forms.Button btnListar;
         private System.Windows.Forms.PictureBox ptbImagen;
         private System.Windows.Forms.Button btnCambiarImagen;
     }

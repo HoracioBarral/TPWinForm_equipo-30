@@ -14,7 +14,7 @@ namespace administrador_datos
         public List<Articulo> listar()
         {
             List<Articulo> listaArt = new List<Articulo>();
-            AccesoDatos datos= new AccesoDatos();
+            AccesoDatos datos = new AccesoDatos();
             datos.SetConsulta("select a.id,a.Codigo,a.Nombre,a.Descripcion,a.Precio,c.Descripcion Tipo,m.Descripcion Marca from articulos a left join categorias c on a.IdCategoria=c.Id inner join marcas m on a.IdMarca=m.Id");
             try
             {
@@ -38,8 +38,9 @@ namespace administrador_datos
 
                     art.NombreMarca = new Marca();
                     art.NombreMarca.Descripcion = (string)datos.Lector["Marca"];
-                    art.Url = new List<Imagen>();
-                    art.Url = obtenerImagenes(art.Id);
+                    List<Imagen> imagenes = new List<Imagen>();
+                    imagenes = obtenerImagenes(art.Id);
+                    art.UrlImagen = imagenes;
                     listaArt.Add(art);
                 }
                 return listaArt;
@@ -53,12 +54,12 @@ namespace administrador_datos
             {
                 datos.CerrarConexion();
             }
-            
+
         }
 
         public List<Imagen> obtenerImagenes(int id)
         {
-            List<Imagen> imagenes = new List<Imagen>();
+            List<Imagen> listadoImagenes = new List<Imagen>();
             AccesoDatos datos2 = new AccesoDatos();
             datos2.SetConsulta("select i.id,i.imagenUrl,a.Id articulo from imagenes i, articulos a where a.Id=i.IdArticulo");
             try
@@ -66,17 +67,17 @@ namespace administrador_datos
                 datos2.Consulta_A_DB();
                 while (datos2.Lector.Read())
                 {
-                    Imagen aux = new Imagen();
                     int articulo = (int)datos2.Lector["articulo"];
-                    if (articulo==id)
+                    if (articulo == id)
                     {
-                        aux.Id = (int)datos2.Lector["id"];
-                        aux.IdArticulo = articulo;
-                        aux.UrlImagen = (string)datos2.Lector["imagenUrl"];
-                        imagenes.Add(aux);
+                        Imagen imagen = new Imagen();
+                        imagen.Id = (int)datos2.Lector["id"];
+                        imagen.IdArticulo = articulo;
+                        imagen.Url = (string)datos2.Lector["imagenUrl"];
+                        listadoImagenes.Add(imagen);
                     }
                 }
-                return imagenes;
+                return listadoImagenes;
             }
             catch (Exception ex)
             {
@@ -88,5 +89,6 @@ namespace administrador_datos
                 datos2.CerrarConexion();
             }
         }
-    }
+    
+}
 }
