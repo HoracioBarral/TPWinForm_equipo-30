@@ -29,20 +29,23 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.cmbCategorias = new System.Windows.Forms.ComboBox();
             this.cmbMarcas = new System.Windows.Forms.ComboBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtPrecio = new System.Windows.Forms.TextBox();
             this.btnVolver = new System.Windows.Forms.Button();
             this.btnAgregarArticulo = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtImagen = new System.Windows.Forms.TextBox();
+            this.btnAgregarImagen = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -55,12 +58,12 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre: ";
             // 
-            // textBox1
+            // txtNombre
             // 
-            this.textBox1.Location = new System.Drawing.Point(147, 80);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(307, 20);
-            this.textBox1.TabIndex = 1;
+            this.txtNombre.Location = new System.Drawing.Point(147, 80);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(307, 20);
+            this.txtNombre.TabIndex = 1;
             // 
             // label2
             // 
@@ -122,19 +125,19 @@
             this.label7.TabIndex = 7;
             this.label7.Text = "Precio:";
             // 
-            // textBox2
+            // txtCodigo
             // 
-            this.textBox2.Location = new System.Drawing.Point(147, 112);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(50, 20);
-            this.textBox2.TabIndex = 8;
+            this.txtCodigo.Location = new System.Drawing.Point(147, 112);
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(50, 20);
+            this.txtCodigo.TabIndex = 8;
             // 
-            // textBox3
+            // txtDescripcion
             // 
-            this.textBox3.Location = new System.Drawing.Point(147, 237);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(307, 20);
-            this.textBox3.TabIndex = 9;
+            this.txtDescripcion.Location = new System.Drawing.Point(147, 237);
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(307, 20);
+            this.txtDescripcion.TabIndex = 9;
             // 
             // cmbCategorias
             // 
@@ -152,12 +155,12 @@
             this.cmbMarcas.Size = new System.Drawing.Size(121, 21);
             this.cmbMarcas.TabIndex = 11;
             // 
-            // textBox4
+            // txtPrecio
             // 
-            this.textBox4.Location = new System.Drawing.Point(147, 142);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(50, 20);
-            this.textBox4.TabIndex = 12;
+            this.txtPrecio.Location = new System.Drawing.Point(147, 142);
+            this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.Size = new System.Drawing.Size(50, 20);
+            this.txtPrecio.TabIndex = 12;
             // 
             // btnVolver
             // 
@@ -178,26 +181,54 @@
             this.btnAgregarArticulo.Text = "Agregar Articulo";
             this.btnAgregarArticulo.UseVisualStyleBackColor = true;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(155, 361);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(193, 13);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "Agregue una nueva imagen desde aqui";
+            // 
+            // txtImagen
+            // 
+            this.txtImagen.Location = new System.Drawing.Point(147, 305);
+            this.txtImagen.Name = "txtImagen";
+            this.txtImagen.Size = new System.Drawing.Size(307, 20);
+            this.txtImagen.TabIndex = 16;
+            // 
+            // btnAgregarImagen
+            // 
+            this.btnAgregarImagen.Location = new System.Drawing.Point(147, 335);
+            this.btnAgregarImagen.Name = "btnAgregarImagen";
+            this.btnAgregarImagen.Size = new System.Drawing.Size(159, 23);
+            this.btnAgregarImagen.TabIndex = 17;
+            this.btnAgregarImagen.Text = "Agregar Imagen";
+            this.btnAgregarImagen.UseVisualStyleBackColor = true;
+            // 
             // AgregarArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Peru;
             this.ClientSize = new System.Drawing.Size(804, 611);
+            this.Controls.Add(this.btnAgregarImagen);
+            this.Controls.Add(this.txtImagen);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.btnAgregarArticulo);
             this.Controls.Add(this.btnVolver);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.cmbMarcas);
             this.Controls.Add(this.cmbCategorias);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtDescripcion);
+            this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.label1);
             this.Name = "AgregarArticulo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -211,19 +242,22 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtCodigo;
+        private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.ComboBox cmbCategorias;
         private System.Windows.Forms.ComboBox cmbMarcas;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.Button btnAgregarArticulo;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtImagen;
+        private System.Windows.Forms.Button btnAgregarImagen;
     }
 }
