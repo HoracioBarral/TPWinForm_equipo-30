@@ -7,36 +7,35 @@ using moldes_clases;
 
 namespace administrador_datos
 {
-    public class ListaCategorias
+    public class MarcaNegocio
     {
-        public List<Categoria> Listar()
+        public List<Marca> Listar()
         {
-            List<Categoria> listaCategorias = new List<Categoria>();
+            List<Marca> listadoMarcas = new List<Marca>();
             AccesoDatos datos = new AccesoDatos();
-            datos.SetConsulta("select id,Descripcion from categorias");
+            datos.SetConsulta("select id,Descripcion from marcas");
 
             try
             {
                 datos.Consulta_A_DB();
                 while (datos.Lector.Read())
                 {
-                    Categoria categoria = new Categoria();
-                    categoria.Id = (int)datos.Lector["id"];
-                    categoria.Descripcion = (string)datos.Lector["Descripcion"];
-                    listaCategorias.Add(categoria);
+                   Marca marca = new Marca();
+                   marca.Id = (int)datos.Lector["id"];
+                   marca.Descripcion = (string)datos.Lector["Descripcion"];
+                   listadoMarcas.Add(marca);
                 }
-                return listaCategorias;
+                return listadoMarcas;
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             finally
             {
                 datos.CerrarConexion();
             }
-
         }
+
     }
 }

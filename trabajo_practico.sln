@@ -5,9 +5,9 @@ VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApp", "WindowsFormsApp\WindowsFormsApp.csproj", "{22CF89EB-9C7B-44A5-87E7-DC63CEC52283}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "moldes_clases", "moldes_clases\moldes_clases.csproj", "{E62C167B-AD5C-4A18-9692-B0CCCAD199C8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dominio", "moldes_clases\dominio.csproj", "{E62C167B-AD5C-4A18-9692-B0CCCAD199C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "administrador_datos", "administrador_datos\administrador_datos.csproj", "{C134A086-2176-4B0F-A82F-FCA3C2ADD8E3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "negocio", "administrador_datos\negocio.csproj", "{C134A086-2176-4B0F-A82F-FCA3C2ADD8E3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

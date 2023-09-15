@@ -26,7 +26,7 @@ namespace WindowsFormsApp
 
         private void ListarArticulos()
         {
-            ListaArticulos art = new ListaArticulos();
+            ArticuloNegocio art = new ArticuloNegocio();
             try
             {
                 articulos = art.listar();

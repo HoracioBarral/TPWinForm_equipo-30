@@ -9,7 +9,7 @@ using moldes_clases;
 
 namespace administrador_datos
 {
-    public class ListaArticulos
+    public class ArticuloNegocio
     {
         public List<Articulo> listar()
         {
@@ -54,6 +54,12 @@ namespace administrador_datos
             {
                 datos.CerrarConexion();
             }
+
+        }
+        public void agregarArticulo(Articulo articulo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            datos.SetConsulta(" a.id,a.Codigo,a.Nombre,a.Descripcion,a.Precio,c.Descripcion Tipo,m.Descripcion Marca from articulos a left join categorias c on a.IdCategoria=c.Id inner join marcas m on a.IdMarca=m.Id");
 
         }
 

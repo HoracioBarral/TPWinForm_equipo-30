@@ -126,13 +126,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\administrador_datos\administrador_datos.csproj">
+    <ProjectReference Include="..\administrador_datos\negocio.csproj">
       <Project>{c134a086-2176-4b0f-a82f-fca3c2add8e3}</Project>
-      <Name>administrador_datos</Name>
+      <Name>negocio</Name>
     </ProjectReference>
-    <ProjectReference Include="..\moldes_clases\moldes_clases.csproj">
+    <ProjectReference Include="..\moldes_clases\dominio.csproj">
       <Project>{e62c167b-ad5c-4a18-9692-b0cccad199c8}</Project>
-      <Name>moldes_clases</Name>
+      <Name>dominio</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

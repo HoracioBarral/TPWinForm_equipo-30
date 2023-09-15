@@ -42,15 +42,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccesoDatos.cs" />
-    <Compile Include="ListaArticulos.cs" />
-    <Compile Include="ListaCategorias.cs" />
-    <Compile Include="ListaMarcas.cs" />
+    <Compile Include="ArticuloNegocio.cs" />
+    <Compile Include="CategoriaNegocio.cs" />
+    <Compile Include="MarcaNegocio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\moldes_clases\moldes_clases.csproj">
+    <ProjectReference Include="..\moldes_clases\dominio.csproj">
       <Project>{e62c167b-ad5c-4a18-9692-b0cccad199c8}</Project>
-      <Name>moldes_clases</Name>
+      <Name>dominio</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

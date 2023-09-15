@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtNombreAgregar = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtCodigoAgregar = new System.Windows.Forms.TextBox();
+            this.txtDescripcionAgregar = new System.Windows.Forms.TextBox();
             this.cmbCategorias = new System.Windows.Forms.ComboBox();
             this.cmbMarcas = new System.Windows.Forms.ComboBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtPrecioAgregar = new System.Windows.Forms.TextBox();
             this.btnVolver = new System.Windows.Forms.Button();
             this.btnAgregarArticulo = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -55,12 +55,12 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre: ";
             // 
-            // textBox1
+            // txtNombreAgregar
             // 
-            this.textBox1.Location = new System.Drawing.Point(147, 80);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(307, 20);
-            this.textBox1.TabIndex = 1;
+            this.txtNombreAgregar.Location = new System.Drawing.Point(147, 80);
+            this.txtNombreAgregar.Name = "txtNombreAgregar";
+            this.txtNombreAgregar.Size = new System.Drawing.Size(307, 20);
+            this.txtNombreAgregar.TabIndex = 1;
             // 
             // label2
             // 
@@ -122,19 +122,19 @@
             this.label7.TabIndex = 7;
             this.label7.Text = "Precio:";
             // 
-            // textBox2
+            // txtCodigoAgregar
             // 
-            this.textBox2.Location = new System.Drawing.Point(147, 112);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(50, 20);
-            this.textBox2.TabIndex = 8;
+            this.txtCodigoAgregar.Location = new System.Drawing.Point(147, 112);
+            this.txtCodigoAgregar.Name = "txtCodigoAgregar";
+            this.txtCodigoAgregar.Size = new System.Drawing.Size(50, 20);
+            this.txtCodigoAgregar.TabIndex = 8;
             // 
-            // textBox3
+            // txtDescripcionAgregar
             // 
-            this.textBox3.Location = new System.Drawing.Point(147, 237);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(307, 20);
-            this.textBox3.TabIndex = 9;
+            this.txtDescripcionAgregar.Location = new System.Drawing.Point(147, 237);
+            this.txtDescripcionAgregar.Name = "txtDescripcionAgregar";
+            this.txtDescripcionAgregar.Size = new System.Drawing.Size(307, 20);
+            this.txtDescripcionAgregar.TabIndex = 9;
             // 
             // cmbCategorias
             // 
@@ -152,12 +152,12 @@
             this.cmbMarcas.Size = new System.Drawing.Size(121, 21);
             this.cmbMarcas.TabIndex = 11;
             // 
-            // textBox4
+            // txtPrecioAgregar
             // 
-            this.textBox4.Location = new System.Drawing.Point(147, 142);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(50, 20);
-            this.textBox4.TabIndex = 12;
+            this.txtPrecioAgregar.Location = new System.Drawing.Point(147, 142);
+            this.txtPrecioAgregar.Name = "txtPrecioAgregar";
+            this.txtPrecioAgregar.Size = new System.Drawing.Size(50, 20);
+            this.txtPrecioAgregar.TabIndex = 12;
             // 
             // btnVolver
             // 
@@ -177,6 +177,7 @@
             this.btnAgregarArticulo.TabIndex = 14;
             this.btnAgregarArticulo.Text = "Agregar Articulo";
             this.btnAgregarArticulo.UseVisualStyleBackColor = true;
+            this.btnAgregarArticulo.Click += new System.EventHandler(this.btnAgregarArticulo_Click);
             // 
             // AgregarArticulo
             // 
@@ -186,18 +187,18 @@
             this.ClientSize = new System.Drawing.Size(804, 611);
             this.Controls.Add(this.btnAgregarArticulo);
             this.Controls.Add(this.btnVolver);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txtPrecioAgregar);
             this.Controls.Add(this.cmbMarcas);
             this.Controls.Add(this.cmbCategorias);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtDescripcionAgregar);
+            this.Controls.Add(this.txtCodigoAgregar);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtNombreAgregar);
             this.Controls.Add(this.label1);
             this.Name = "AgregarArticulo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -211,18 +212,18 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtNombreAgregar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtCodigoAgregar;
+        private System.Windows.Forms.TextBox txtDescripcionAgregar;
         private System.Windows.Forms.ComboBox cmbCategorias;
         private System.Windows.Forms.ComboBox cmbMarcas;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtPrecioAgregar;
         private System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.Button btnAgregarArticulo;
     }

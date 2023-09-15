@@ -28,8 +28,8 @@ namespace WindowsFormsApp
 
         private void AgregarArticulo_Load(object sender, EventArgs e)
         {
-            ListaMarcas listadoMarcas = new ListaMarcas();
-            ListaCategorias listadoCategorias = new ListaCategorias();
+            MarcaNegocio listadoMarcas = new MarcaNegocio();
+            CategoriaNegocio listadoCategorias = new CategoriaNegocio();
             try
             {
                 cmbMarcas.DataSource = listadoMarcas.Listar();
@@ -40,6 +40,11 @@ namespace WindowsFormsApp
 
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void btnAgregarArticulo_Click(object sender, EventArgs e)
+        {
+          
         }
     }
 }
