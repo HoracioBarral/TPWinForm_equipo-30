@@ -95,6 +95,83 @@ namespace administrador_datos
                 datos2.CerrarConexion();
             }
         }
-    
-}
+
+        public void AgregarArticulo(Articulo nuevo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                obtenerIdMarca(nuevo);
+                obtenerIdCategoria(nuevo);
+                datos.SetConsulta("insert into articulos (Codigo,Nombre,Descripcion,IdMarca,IdCategoria,Precio) values(@Codigo,@Nombre,@Descripcion,@IdMarca,@IdCategoria,@Precio)");
+                datos.SetParametros("@Codigo", nuevo.Codigo);
+                datos.SetParametros("@Nombre", nuevo.Nombre);
+                datos.SetParametros("@Descripcion", nuevo.Descripcion);
+                datos.SetParametros("@IdMarca", nuevo.NombreMarca.Id);
+                datos.SetParametros("@IdCategoria", nuevo.TipoCategoria.Id);
+                datos.SetParametros("@Precio", nuevo.Precio);
+                datos.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+
+        }
+
+        public void obtenerIdMarca(Articulo nuevo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            datos.SetConsulta("select id from marcas where Descripcion=@nombreMarca");
+            datos.SetParametros("@nombreMarca", nuevo.NombreMarca.Descripcion);
+
+            try
+            {
+                datos.Consulta_A_DB();
+                while (datos.Lector.Read())
+                {
+                    nuevo.NombreMarca.Id = (int)datos.Lector["id"];
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+        }
+
+        public void obtenerIdCategoria(Articulo nuevo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            datos.SetConsulta("select id from categorias where Descripcion=@nombreCategoria");
+            datos.SetParametros("@nombreCategoria", nuevo.TipoCategoria.Descripcion);
+
+            try
+            {
+                datos.Consulta_A_DB();
+                while (datos.Lector.Read())
+                {
+                    nuevo.TipoCategoria.Id = (int)datos.Lector["id"];
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+        }
+    }
 }

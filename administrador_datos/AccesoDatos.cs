@@ -23,7 +23,7 @@ namespace administrador_datos
         public AccesoDatos()
         {
             conexion = new SqlConnection("server=.\\SQLEXPRESS; database=CATALOGO_P3_DB; integrated security=true");
-            comando= new SqlCommand();
+            comando = new SqlCommand();
         }
 
         public void SetConsulta(string consulta)
@@ -38,12 +38,32 @@ namespace administrador_datos
             try
             {
                 conexion.Open();
-                lector=comando.ExecuteReader();
+                lector = comando.ExecuteReader();
             }
             catch (Exception ex)
             {
 
                 throw ex;
+            }
+        }
+
+        public void SetParametros(string nombre, object valor)
+        {
+            comando.Parameters.AddWithValue(nombre, valor);
+        }
+
+        public void EjecutarAccion()
+        {
+            comando.Connection = conexion;
+            try
+            {
+                conexion.Open();
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
 
