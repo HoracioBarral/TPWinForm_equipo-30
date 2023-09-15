@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp
 {
-    partial class Form1
+    partial class ListadoDeArticulo
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -37,42 +37,49 @@
             // 
             // dgvArticulos
             // 
+            this.dgvArticulos.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvArticulos.Location = new System.Drawing.Point(45, 34);
+            this.dgvArticulos.Location = new System.Drawing.Point(29, 31);
             this.dgvArticulos.Name = "dgvArticulos";
-            this.dgvArticulos.Size = new System.Drawing.Size(406, 150);
+            this.dgvArticulos.Size = new System.Drawing.Size(743, 150);
             this.dgvArticulos.TabIndex = 0;
             this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
             // 
             // ptbImagen
             // 
-            this.ptbImagen.Location = new System.Drawing.Point(497, 34);
+            this.ptbImagen.Location = new System.Drawing.Point(307, 215);
             this.ptbImagen.Name = "ptbImagen";
-            this.ptbImagen.Size = new System.Drawing.Size(146, 150);
+            this.ptbImagen.Size = new System.Drawing.Size(158, 149);
             this.ptbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptbImagen.TabIndex = 2;
             this.ptbImagen.TabStop = false;
             // 
             // btnCambiarImagen
             // 
-            this.btnCambiarImagen.Location = new System.Drawing.Point(497, 207);
+            this.btnCambiarImagen.ForeColor = System.Drawing.Color.Black;
+            this.btnCambiarImagen.Location = new System.Drawing.Point(307, 429);
             this.btnCambiarImagen.Name = "btnCambiarImagen";
-            this.btnCambiarImagen.Size = new System.Drawing.Size(106, 23);
+            this.btnCambiarImagen.Size = new System.Drawing.Size(158, 39);
             this.btnCambiarImagen.TabIndex = 3;
             this.btnCambiarImagen.Text = "Cambiar Imagen";
             this.btnCambiarImagen.UseVisualStyleBackColor = true;
             this.btnCambiarImagen.Click += new System.EventHandler(this.btnCambiarImagen_Click);
             // 
-            // Form1
+            // ListadoDeArticulo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.Peru;
+            this.ClientSize = new System.Drawing.Size(804, 611);
             this.Controls.Add(this.btnCambiarImagen);
             this.Controls.Add(this.ptbImagen);
             this.Controls.Add(this.dgvArticulos);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.Color.Black;
+            this.Name = "ListadoDeArticulo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Listado de articulos";
+            this.Load += new System.EventHandler(this.ListadoDeArticulo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbImagen)).EndInit();
             this.ResumeLayout(false);

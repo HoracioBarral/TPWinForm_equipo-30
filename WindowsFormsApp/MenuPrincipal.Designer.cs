@@ -94,7 +94,7 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(692, 390);
+            this.btnSalir.Location = new System.Drawing.Point(708, 410);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 48);
             this.btnSalir.TabIndex = 5;
@@ -111,7 +111,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Peru;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(804, 481);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btningresarNombre);
             this.Controls.Add(this.Nombre);

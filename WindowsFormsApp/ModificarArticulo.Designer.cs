@@ -202,6 +202,7 @@
             this.Name = "ModificarArticulo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ModificarArticulo";
+            this.Load += new System.EventHandler(this.ModificarArticulo_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

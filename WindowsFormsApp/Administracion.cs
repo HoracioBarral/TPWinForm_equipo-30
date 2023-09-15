@@ -47,7 +47,7 @@ namespace WindowsFormsApp
 
         private void btnListaArticulo_Click(object sender, EventArgs e)
         {
-            using (Form1 ventanaListado = new Form1())
+            using (ListadoDeArticulo ventanaListado = new ListadoDeArticulo())
                 ventanaListado.ShowDialog();
         }
     }

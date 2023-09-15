@@ -12,9 +12,9 @@ using administrador_datos;
 
 namespace WindowsFormsApp
 {
-    public partial class Form1 : Form
+    public partial class ListadoDeArticulo : Form
     {
-        public Form1()
+        public ListadoDeArticulo()
         {
             InitializeComponent();
             ListarArticulos();
@@ -78,5 +78,9 @@ namespace WindowsFormsApp
             CargarImagen(seleccion);
         }
 
+        private void ListadoDeArticulo_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

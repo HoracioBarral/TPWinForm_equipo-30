@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp
 {
-    public partial class ModificarArticulo : Form
+    public partial class DetalleArticulo : Form
     {
-        public ModificarArticulo()
+        public DetalleArticulo()
         {
             InitializeComponent();
-        }
-
-        private void btnVolver_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void ModificarArticulo_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
