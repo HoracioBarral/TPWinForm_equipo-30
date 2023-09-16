@@ -30,18 +30,18 @@
         {
             this.btnAgregarArticulo = new System.Windows.Forms.Button();
             this.btnVolver = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtPrecio = new System.Windows.Forms.TextBox();
+            this.cmbMarcas = new System.Windows.Forms.ComboBox();
+            this.cmbCategorias = new System.Windows.Forms.ComboBox();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -69,42 +69,42 @@
             this.btnVolver.UseVisualStyleBackColor = false;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
-            // textBox4
+            // txtPrecio
             // 
-            this.textBox4.Location = new System.Drawing.Point(144, 140);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(50, 20);
-            this.textBox4.TabIndex = 27;
+            this.txtPrecio.Location = new System.Drawing.Point(144, 140);
+            this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.Size = new System.Drawing.Size(50, 20);
+            this.txtPrecio.TabIndex = 27;
             // 
-            // comboBox2
+            // cmbMarcas
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(144, 170);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 26;
+            this.cmbMarcas.FormattingEnabled = true;
+            this.cmbMarcas.Location = new System.Drawing.Point(144, 170);
+            this.cmbMarcas.Name = "cmbMarcas";
+            this.cmbMarcas.Size = new System.Drawing.Size(121, 21);
+            this.cmbMarcas.TabIndex = 26;
             // 
-            // comboBox1
+            // cmbCategorias
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(144, 201);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 25;
+            this.cmbCategorias.FormattingEnabled = true;
+            this.cmbCategorias.Location = new System.Drawing.Point(144, 201);
+            this.cmbCategorias.Name = "cmbCategorias";
+            this.cmbCategorias.Size = new System.Drawing.Size(121, 21);
+            this.cmbCategorias.TabIndex = 25;
             // 
-            // textBox3
+            // txtDescripcion
             // 
-            this.textBox3.Location = new System.Drawing.Point(144, 235);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(307, 20);
-            this.textBox3.TabIndex = 24;
+            this.txtDescripcion.Location = new System.Drawing.Point(144, 235);
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(307, 20);
+            this.txtDescripcion.TabIndex = 24;
             // 
-            // textBox2
+            // txtCodigo
             // 
-            this.textBox2.Location = new System.Drawing.Point(144, 110);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(50, 20);
-            this.textBox2.TabIndex = 23;
+            this.txtCodigo.Location = new System.Drawing.Point(144, 110);
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(50, 20);
+            this.txtCodigo.TabIndex = 23;
             // 
             // label7
             // 
@@ -166,12 +166,12 @@
             this.label2.TabIndex = 17;
             this.label2.Text = "Codigo:";
             // 
-            // textBox1
+            // txtNombre
             // 
-            this.textBox1.Location = new System.Drawing.Point(144, 78);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(307, 20);
-            this.textBox1.TabIndex = 16;
+            this.txtNombre.Location = new System.Drawing.Point(144, 78);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(307, 20);
+            this.txtNombre.TabIndex = 16;
             // 
             // label1
             // 
@@ -191,18 +191,18 @@
             this.ClientSize = new System.Drawing.Size(804, 611);
             this.Controls.Add(this.btnAgregarArticulo);
             this.Controls.Add(this.btnVolver);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtPrecio);
+            this.Controls.Add(this.cmbMarcas);
+            this.Controls.Add(this.cmbCategorias);
+            this.Controls.Add(this.txtDescripcion);
+            this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.label1);
             this.Name = "ModificarArticulo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -217,18 +217,18 @@
 
         private System.Windows.Forms.Button btnAgregarArticulo;
         private System.Windows.Forms.Button btnVolver;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtPrecio;
+        private System.Windows.Forms.ComboBox cmbMarcas;
+        private System.Windows.Forms.ComboBox cmbCategorias;
+        private System.Windows.Forms.TextBox txtDescripcion;
+        private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label1;
     }
 }

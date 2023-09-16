@@ -1,4 +1,5 @@
-﻿using System;
+﻿using moldes_clases;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,11 @@ namespace WindowsFormsApp
 {
     public partial class ModificarArticulo : Form
     {
-        public ModificarArticulo()
+        private Articulo articuloAmodificar;
+        public ModificarArticulo(Articulo articuloAmodificar)
         {
             InitializeComponent();
+            this.articuloAmodificar = articuloAmodificar;
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -24,7 +27,7 @@ namespace WindowsFormsApp
 
         private void ModificarArticulo_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnAgregarArticulo_Click(object sender, EventArgs e)
