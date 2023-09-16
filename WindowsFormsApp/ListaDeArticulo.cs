@@ -97,6 +97,7 @@ namespace WindowsFormsApp
         {
             using (ModificarArticulo ventanaMArticulo = new ModificarArticulo(seleccion))
                 ventanaMArticulo.ShowDialog();
+            ListarArticulos();
         }
 
         private void btnEliminarFisico_Click(object sender, EventArgs e)
@@ -110,9 +111,10 @@ namespace WindowsFormsApp
                 {
                     seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
                     negocio.eliminarArticulo(seleccionado.Id);
+                    ListarArticulos();
                 }
-                
-                
+
+
             }
             catch (Exception ex )
             {
