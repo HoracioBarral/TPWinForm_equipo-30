@@ -27,6 +27,9 @@ namespace WindowsFormsApp
 
         }
 
-        
+        private void btnAgregarArticulo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

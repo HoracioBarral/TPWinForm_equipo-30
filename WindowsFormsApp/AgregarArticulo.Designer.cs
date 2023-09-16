@@ -166,22 +166,26 @@
             // 
             // btnVolver
             // 
+            this.btnVolver.BackColor = System.Drawing.Color.Silver;
+            this.btnVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVolver.Location = new System.Drawing.Point(698, 524);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(88, 48);
             this.btnVolver.TabIndex = 13;
             this.btnVolver.Text = "Volver";
-            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.UseVisualStyleBackColor = false;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // btnAgregarArticulo
             // 
+            this.btnAgregarArticulo.BackColor = System.Drawing.Color.Silver;
+            this.btnAgregarArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregarArticulo.Location = new System.Drawing.Point(315, 509);
             this.btnAgregarArticulo.Name = "btnAgregarArticulo";
             this.btnAgregarArticulo.Size = new System.Drawing.Size(139, 63);
             this.btnAgregarArticulo.TabIndex = 14;
             this.btnAgregarArticulo.Text = "Agregar Articulo";
-            this.btnAgregarArticulo.UseVisualStyleBackColor = true;
+            this.btnAgregarArticulo.UseVisualStyleBackColor = false;
             this.btnAgregarArticulo.Click += new System.EventHandler(this.btnAgregarArticulo_Click);
             // 
             // label8

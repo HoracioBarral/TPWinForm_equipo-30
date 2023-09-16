@@ -196,5 +196,23 @@ namespace administrador_datos
             }
         }
 
+        public void eliminarArticulo (int id)
+        {
+            try
+            {
+                AccesoDatos datos = new AccesoDatos();
+                datos.SetConsulta("delete from ARTICULOS where id = @id");
+                datos.SetParametros("@id", id);
+                datos.EjecutarAccion();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            } 
+
+        }
+
+
     }
 }

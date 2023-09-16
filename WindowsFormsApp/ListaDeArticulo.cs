@@ -84,5 +84,28 @@ namespace WindowsFormsApp
             using (ModificarArticulo ventanaMArticulo = new ModificarArticulo())
                 ventanaMArticulo.ShowDialog();
         }
+
+        private void btnEliminarFisico_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            Articulo seleccionado;
+            try
+            {
+                DialogResult respuesta = MessageBox.Show("Usted quiere eliminar este articulo?" , "Eliminando",MessageBoxButtons.YesNo);
+                if (respuesta == DialogResult.Yes)
+                {
+                    seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                    negocio.eliminarArticulo(seleccionado.Id);
+                }
+                
+                
+            }
+            catch (Exception ex )
+            {
+                MessageBox.Show(ex.ToString());
+
+                throw;
+            }
+        }
     }
 }

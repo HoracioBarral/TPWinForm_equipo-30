@@ -32,6 +32,7 @@
             this.ptbImagen = new System.Windows.Forms.PictureBox();
             this.btnCambiarImagen = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
+            this.btnEliminarFisico = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbImagen)).BeginInit();
             this.SuspendLayout();
@@ -57,24 +58,40 @@
             // 
             // btnCambiarImagen
             // 
+            this.btnCambiarImagen.BackColor = System.Drawing.Color.Silver;
             this.btnCambiarImagen.ForeColor = System.Drawing.Color.Black;
             this.btnCambiarImagen.Location = new System.Drawing.Point(307, 429);
             this.btnCambiarImagen.Name = "btnCambiarImagen";
             this.btnCambiarImagen.Size = new System.Drawing.Size(158, 39);
             this.btnCambiarImagen.TabIndex = 3;
             this.btnCambiarImagen.Text = "Cambiar Imagen";
-            this.btnCambiarImagen.UseVisualStyleBackColor = true;
+            this.btnCambiarImagen.UseVisualStyleBackColor = false;
             this.btnCambiarImagen.Click += new System.EventHandler(this.btnCambiarImagen_Click);
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(307, 504);
+            this.btnModificar.BackColor = System.Drawing.Color.Silver;
+            this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificar.Location = new System.Drawing.Point(307, 495);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(158, 23);
+            this.btnModificar.Size = new System.Drawing.Size(158, 41);
             this.btnModificar.TabIndex = 4;
             this.btnModificar.Text = "Modificar Articulo";
-            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            // 
+            // btnEliminarFisico
+            // 
+            this.btnEliminarFisico.BackColor = System.Drawing.Color.Silver;
+            this.btnEliminarFisico.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarFisico.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnEliminarFisico.Location = new System.Drawing.Point(144, 495);
+            this.btnEliminarFisico.Name = "btnEliminarFisico";
+            this.btnEliminarFisico.Size = new System.Drawing.Size(130, 41);
+            this.btnEliminarFisico.TabIndex = 7;
+            this.btnEliminarFisico.Text = "Eliminar Articulo";
+            this.btnEliminarFisico.UseVisualStyleBackColor = false;
+            this.btnEliminarFisico.Click += new System.EventHandler(this.btnEliminarFisico_Click);
             // 
             // ListadoDeArticulo
             // 
@@ -82,6 +99,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Peru;
             this.ClientSize = new System.Drawing.Size(804, 611);
+            this.Controls.Add(this.btnEliminarFisico);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnCambiarImagen);
             this.Controls.Add(this.ptbImagen);
@@ -103,6 +121,7 @@
         private System.Windows.Forms.PictureBox ptbImagen;
         private System.Windows.Forms.Button btnCambiarImagen;
         private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnEliminarFisico;
     }
 }
 
