@@ -17,7 +17,6 @@ namespace WindowsFormsApp
         public ListadoDeArticulo()
         {
             InitializeComponent();
-            ListarArticulos();
         }
         private int indice = 0;
         private List<Articulo> articulos;
@@ -45,25 +44,31 @@ namespace WindowsFormsApp
         public void CargarImagen(Articulo aux)
         {
             List<Imagen> imagenes = aux.UrlImagen;
-            i = imagenes.Count;
-            if (indice < i)
+            
+            if (imagenes != null)
             {
-                btnCambiarImagen.Enabled = true;
-                try
-                {
-                    ptbImagen.Load(imagenes[indice].Url);
+                i = imagenes.Count;
 
+                if (indice < i)
+                {
+                    btnCambiarImagen.Enabled = true;
+                    try
+                    {
+                        ptbImagen.Load(imagenes[indice].Url);
+
+                    }
+                    catch (Exception)
+                    {
+
+                        ptbImagen.Load("https://efectocolibri.com/wp-content/uploads/2021/01/placeholder.png");
+                    }
                 }
-                catch (Exception)
+                else
                 {
-
-                    ptbImagen.Load("https://efectocolibri.com/wp-content/uploads/2021/01/placeholder.png");
+                    btnCambiarImagen.Enabled = false;
                 }
             }
-            else
-            {
-               btnCambiarImagen.Enabled = false;
-            }
+            
         }
 
         private void btnCambiarImagen_Click(object sender, EventArgs e)
@@ -106,6 +111,11 @@ namespace WindowsFormsApp
 
                 throw;
             }
+        }
+
+        private void ListadoDeArticulo_Load(object sender, EventArgs e)
+        {
+            ListarArticulos();
         }
     }
 }

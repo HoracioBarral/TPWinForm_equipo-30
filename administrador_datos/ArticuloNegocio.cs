@@ -38,9 +38,11 @@ namespace administrador_datos
 
                     art.NombreMarca = new Marca();
                     art.NombreMarca.Descripcion = (string)datos.Lector["Marca"];
-                    List<Imagen> imagenes = new List<Imagen>();
+                    List<Imagen> imagenes;
                     imagenes = obtenerImagenes(art.Id);
-                    art.UrlImagen = imagenes;
+                    if (imagenes.Count > 0) {
+                        art.UrlImagen = imagenes;
+                    }
                     listaArt.Add(art);
                 }
                 return listaArt;
@@ -60,20 +62,20 @@ namespace administrador_datos
         private List<Imagen> obtenerImagenes(int id)
         {
             List<Imagen> listadoImagenes = new List<Imagen>();
-            AccesoDatos datos2 = new AccesoDatos();
-            datos2.SetConsulta("select i.id,i.imagenUrl,a.Id articulo from imagenes i, articulos a where a.Id=i.IdArticulo");
+            AccesoDatos datos = new AccesoDatos();
+            datos.SetConsulta("select i.id,i.imagenUrl,a.Id articulo from imagenes i, articulos a where a.Id=i.IdArticulo");
             try
             {
-                datos2.Consulta_A_DB();
-                while (datos2.Lector.Read())
+                datos.Consulta_A_DB();
+                while (datos.Lector.Read())
                 {
-                    int articulo = (int)datos2.Lector["articulo"];
+                    int articulo = (int)datos.Lector["articulo"];
                     if (articulo == id)
                     {
                         Imagen imagen = new Imagen();
-                        imagen.Id = (int)datos2.Lector["id"];
+                        imagen.Id = (int)datos.Lector["id"];
                         imagen.IdArticulo = articulo;
-                        imagen.Url = (string)datos2.Lector["imagenUrl"];
+                        imagen.Url = (string)datos.Lector["imagenUrl"];
                         listadoImagenes.Add(imagen);
                     }
                 }
@@ -86,7 +88,7 @@ namespace administrador_datos
             }
             finally
             {
-                datos2.CerrarConexion();
+                datos.CerrarConexion();
             }
         }
 
