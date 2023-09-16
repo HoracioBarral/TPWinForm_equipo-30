@@ -14,19 +14,12 @@ namespace WindowsFormsApp
 {
     public partial class AgregarArticulo : Form
     {
-        Articulo articuloNuevo = null;
+        Articulo articuloNuevo;
         List<Imagen> imagenes = new List<Imagen>();
-        //Articulo aux = new Articulo();
 
         public AgregarArticulo()
         {
             InitializeComponent();
-        }
-
-        public AgregarArticulo(Articulo articuloNuevo)
-        {
-            InitializeComponent();
-            this.articuloNuevo = articuloNuevo;
         }
 
 
@@ -51,28 +44,23 @@ namespace WindowsFormsApp
             }
         }
 
-        
 
         private void btnAgregarArticulo_Click(object sender, EventArgs e)
         {
             ArticuloNegocio aux = new ArticuloNegocio();
             try
             {
-                if (articuloNuevo == null)
-                {
-                    articuloNuevo = new Articulo();
-                    articuloNuevo.Nombre = txtNombre.Text;
-                    articuloNuevo.Codigo = txtCodigo.Text;
-                    articuloNuevo.Precio = decimal.Parse(txtPrecio.Text);
-                    articuloNuevo.Descripcion = txtDescripcion.Text;
-                    articuloNuevo.NombreMarca = (Marca)cmbMarcas.SelectedItem;
-                    articuloNuevo.TipoCategoria = (Categoria)cmbCategorias.SelectedItem;
-                    articuloNuevo.UrlImagen = imagenes;
-                    aux.AgregarArticulo(articuloNuevo);
-                    MessageBox.Show("Agregado exitosamente");
-                    Close();
-                }
-                
+                   articuloNuevo = new Articulo();
+                   articuloNuevo.Nombre = txtNombre.Text;
+                   articuloNuevo.Codigo = txtCodigo.Text;
+                   articuloNuevo.Precio = decimal.Parse(txtPrecio.Text);
+                   articuloNuevo.Descripcion = txtDescripcion.Text;
+                   articuloNuevo.NombreMarca = (Marca)cmbMarcas.SelectedItem;
+                   articuloNuevo.TipoCategoria = (Categoria)cmbCategorias.SelectedItem;
+                   articuloNuevo.UrlImagen = imagenes;
+                   aux.AgregarArticulo(articuloNuevo);
+                   MessageBox.Show("Agregado exitosamente");
+                   Close();
             }
             catch (Exception ex)
             {

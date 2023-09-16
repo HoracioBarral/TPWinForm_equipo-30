@@ -42,7 +42,7 @@ namespace WindowsFormsApp
         }
 
 
-        private void CargarImagen(Articulo aux)
+        public void CargarImagen(Articulo aux)
         {
             List<Imagen> imagenes = aux.UrlImagen;
             i = imagenes.Count;
@@ -81,7 +81,8 @@ namespace WindowsFormsApp
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-
+            using (ModificarArticulo ventanaMArticulo = new ModificarArticulo())
+                ventanaMArticulo.ShowDialog();
         }
     }
 }

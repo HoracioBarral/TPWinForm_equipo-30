@@ -180,7 +180,7 @@
             this.btnAgregarArticulo.Name = "btnAgregarArticulo";
             this.btnAgregarArticulo.Size = new System.Drawing.Size(139, 63);
             this.btnAgregarArticulo.TabIndex = 14;
-            this.btnAgregarArticulo.Text = "Agregar o Modificar Articulo";
+            this.btnAgregarArticulo.Text = "Agregar Articulo";
             this.btnAgregarArticulo.UseVisualStyleBackColor = true;
             this.btnAgregarArticulo.Click += new System.EventHandler(this.btnAgregarArticulo_Click);
             // 
