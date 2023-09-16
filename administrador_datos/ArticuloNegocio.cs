@@ -56,12 +56,6 @@ namespace administrador_datos
             }
 
         }
-        public void agregarArticulo(Articulo articulo)
-        {
-            AccesoDatos datos = new AccesoDatos();
-            datos.SetConsulta(" a.id,a.Codigo,a.Nombre,a.Descripcion,a.Precio,c.Descripcion Tipo,m.Descripcion Marca from articulos a left join categorias c on a.IdCategoria=c.Id inner join marcas m on a.IdMarca=m.Id");
-
-        }
 
         public List<Imagen> obtenerImagenes(int id)
         {
@@ -101,8 +95,7 @@ namespace administrador_datos
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                obtenerIdMarca(nuevo);
-                obtenerIdCategoria(nuevo);
+                obtenerIdMarcaYCategoria(nuevo);
                 datos.SetConsulta("insert into articulos (Codigo,Nombre,Descripcion,IdMarca,IdCategoria,Precio) values(@Codigo,@Nombre,@Descripcion,@IdMarca,@IdCategoria,@Precio)");
                 datos.SetParametros("@Codigo", nuevo.Codigo);
                 datos.SetParametros("@Nombre", nuevo.Nombre);
@@ -124,35 +117,11 @@ namespace administrador_datos
 
         }
 
-        public void obtenerIdMarca(Articulo nuevo)
+        public void obtenerIdMarcaYCategoria(Articulo nuevo)
         {
             AccesoDatos datos = new AccesoDatos();
-            datos.SetConsulta("select id from marcas where Descripcion=@nombreMarca");
+            datos.SetConsulta("select c.id IDCategoria, m.id IDMarca from categorias c, marcas m where m.Descripcion=@nombreMarca and c.Descripcion=@nombreCategoria");
             datos.SetParametros("@nombreMarca", nuevo.NombreMarca.Descripcion);
-
-            try
-            {
-                datos.Consulta_A_DB();
-                while (datos.Lector.Read())
-                {
-                    nuevo.NombreMarca.Id = (int)datos.Lector["id"];
-                }
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-            finally
-            {
-                datos.CerrarConexion();
-            }
-        }
-
-        public void obtenerIdCategoria(Articulo nuevo)
-        {
-            AccesoDatos datos = new AccesoDatos();
-            datos.SetConsulta("select id from categorias where Descripcion=@nombreCategoria");
             datos.SetParametros("@nombreCategoria", nuevo.TipoCategoria.Descripcion);
 
             try
@@ -160,7 +129,8 @@ namespace administrador_datos
                 datos.Consulta_A_DB();
                 while (datos.Lector.Read())
                 {
-                    nuevo.TipoCategoria.Id = (int)datos.Lector["id"];
+                    nuevo.TipoCategoria.Id = (int)datos.Lector["IDCategoria"];
+                    nuevo.NombreMarca.Id = (int)datos.Lector["IDMarca"];
                 }
             }
             catch (Exception ex)
@@ -173,5 +143,6 @@ namespace administrador_datos
                 datos.CerrarConexion();
             }
         }
+
     }
 }

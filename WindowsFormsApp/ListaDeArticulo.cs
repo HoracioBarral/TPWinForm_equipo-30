@@ -31,6 +31,7 @@ namespace WindowsFormsApp
             {
                 articulos = art.listar();
                 dgvArticulos.DataSource = articulos;
+                dgvArticulos.Columns["Id"].Visible = false;
             }
             catch (Exception ex)
             {
@@ -78,9 +79,5 @@ namespace WindowsFormsApp
             CargarImagen(seleccion);
         }
 
-        private void ListadoDeArticulo_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
