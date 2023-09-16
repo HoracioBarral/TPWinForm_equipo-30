@@ -88,9 +88,16 @@ namespace WindowsFormsApp
             try
             {
                 imagen.Url = txtImagen.Text;
-                imagenes.Add(imagen);
-                txtImagen.Text = string.Empty;
-                MessageBox.Show("Imagen agregada al articulo");
+                if(txtImagen.Text.Length != 0)
+                {
+                    imagenes.Add(imagen);
+                    txtImagen.Text = string.Empty;
+                    MessageBox.Show("Imagen agregada al articulo");
+                }
+                else
+                {
+                    MessageBox.Show("Por favor complete con una imagen y luego presione el boton");
+                }
             }
             catch (Exception ex)
             {

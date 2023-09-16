@@ -147,10 +147,10 @@ namespace administrador_datos
 
         private void AgregarImagenes(List<Imagen> imagenes)
         {
-            AccesoDatos datos = new AccesoDatos();
             int id = obetenerUltimoIdArticulos();
-            foreach(Imagen aux in imagenes)
+            foreach (Imagen aux in imagenes)
             {
+                AccesoDatos datos = new AccesoDatos();
                 datos.SetConsulta("insert into imagenes (IdArticulo,ImagenUrl) values(@idArticulo,@UrlImagen)");
                 datos.SetParametros("@idArticulo", id);
                 datos.SetParametros("@UrlImagen", aux.Url);
