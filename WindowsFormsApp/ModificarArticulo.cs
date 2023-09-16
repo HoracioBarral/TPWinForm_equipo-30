@@ -36,6 +36,8 @@ namespace WindowsFormsApp
                 txtCodigo.Text = articulo.Codigo;
                 txtPrecio.Text = articulo.Precio.ToString();
                 txtDescripcion.Text = articulo.Descripcion;
+                if(articulo.UrlImagen!=null)
+                    txtImagen.Text = articulo.UrlImagen[0].ToString();
                 cmbMarcas.DataSource = listadoMarcas.Listar();
                 cmbCategorias.DataSource = listadoCategorias.Listar();
 
