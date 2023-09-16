@@ -21,7 +21,6 @@ namespace WindowsFormsApp
         private int indice = 0;
         private List<Articulo> articulos;
         private Articulo seleccion;
-        private int i;
 
         private void ListarArticulos()
         {
@@ -70,6 +69,11 @@ namespace WindowsFormsApp
              {
                 CargarImagen(seleccion.UrlImagen);
              }
+            else
+            {
+                btnCambiarImagen.Enabled = false;
+                ptbImagen.Load("https://efectocolibri.com/wp-content/uploads/2021/01/placeholder.png");
+            }
         }
 
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
@@ -80,6 +84,11 @@ namespace WindowsFormsApp
             if (seleccion.UrlImagen != null)
             {
                 CargarImagen(seleccion.UrlImagen);
+            }
+            else
+            {
+                btnCambiarImagen.Enabled = false;
+                ptbImagen.Load("https://efectocolibri.com/wp-content/uploads/2021/01/placeholder.png");
             }
             
         }

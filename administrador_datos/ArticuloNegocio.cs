@@ -23,26 +23,30 @@ namespace administrador_datos
                 {
                     Articulo art = new Articulo();
                     art.Id = (int)datos.Lector["id"];
-                    art.Codigo = (string)datos.Lector["Codigo"];
-                    art.Nombre = (string)datos.Lector["Nombre"];
-                    art.Descripcion = (string)datos.Lector["Descripcion"];
-                    art.Precio = (decimal)datos.Lector["Precio"];
-                    art.TipoCategoria = new Categoria();
-
+                    if(!(datos.Lector["Codigo"] is DBNull))
+                        art.Codigo = (string)datos.Lector["Codigo"];
+                    if (!(datos.Lector["Nombre"] is DBNull))
+                        art.Nombre = (string)datos.Lector["Nombre"];
+                    if (!(datos.Lector["Descripcion"] is DBNull))
+                        art.Descripcion = (string)datos.Lector["Descripcion"];
+                    if (!(datos.Lector["Precio"] is DBNull))
+                        art.Precio = (decimal)datos.Lector["Precio"];
+                    
                     if (!(datos.Lector["Tipo"] is DBNull))
                     {
+                        art.TipoCategoria = new Categoria();
                         art.TipoCategoria.Descripcion = (string)datos.Lector["Tipo"];
                     }
-                    else
-                        art.TipoCategoria.Descripcion = "Generico";
-
-                    art.NombreMarca = new Marca();
-                    art.NombreMarca.Descripcion = (string)datos.Lector["Marca"];
+                    if (!(datos.Lector["Marca"] is DBNull))
+                    {
+                        art.NombreMarca = new Marca();
+                        art.NombreMarca.Descripcion = (string)datos.Lector["Marca"];
+                    }
+           
                     List<Imagen> imagenes;
                     imagenes = obtenerImagenes(art.Id);
-                    if (imagenes.Count > 0) {
+                    if (imagenes.Count > 0)
                         art.UrlImagen = imagenes;
-                    }
                     listaArt.Add(art);
                 }
                 return listaArt;
@@ -149,7 +153,7 @@ namespace administrador_datos
 
         private void AgregarImagenes(List<Imagen> imagenes)
         {
-            int id = obetenerUltimoIdArticulos();
+            int id = obtenerUltimoIdArticulos();
             foreach (Imagen aux in imagenes)
             {
                 AccesoDatos datos = new AccesoDatos();
@@ -173,7 +177,7 @@ namespace administrador_datos
             
         }
 
-        private int obetenerUltimoIdArticulos()
+        private int obtenerUltimoIdArticulos()
         {
             AccesoDatos datos = new AccesoDatos();
             datos.SetConsulta("select id from articulos");
