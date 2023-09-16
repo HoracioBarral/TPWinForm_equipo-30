@@ -41,47 +41,47 @@ namespace WindowsFormsApp
         }
 
 
-        public void CargarImagen(Articulo aux)
+        public void CargarImagen(List<Imagen> imagenes)
         {
-            List<Imagen> imagenes = aux.UrlImagen;
             
-            if (imagenes != null)
+             try
+                 {
+                   ptbImagen.Load(imagenes[indice].Url);
+
+                 }
+             catch (Exception)
+                  {
+                    ptbImagen.Load("https://efectocolibri.com/wp-content/uploads/2021/01/placeholder.png");
+                   }
+            finally
             {
-                i = imagenes.Count;
-
-                if (indice < i)
-                {
-                    btnCambiarImagen.Enabled = true;
-                    try
-                    {
-                        ptbImagen.Load(imagenes[indice].Url);
-
-                    }
-                    catch (Exception)
-                    {
-
-                        ptbImagen.Load("https://efectocolibri.com/wp-content/uploads/2021/01/placeholder.png");
-                    }
-                }
-                else
+                indice++;
+                if(indice >= imagenes.Count)
                 {
                     btnCambiarImagen.Enabled = false;
                 }
             }
-            
         }
 
         private void btnCambiarImagen_Click(object sender, EventArgs e)
         {
-            indice++;
-            CargarImagen(seleccion);
+            
+            if (seleccion.UrlImagen != null)
+             {
+                CargarImagen(seleccion.UrlImagen);
+             }
         }
 
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
         {
             indice = 0;
+            btnCambiarImagen.Enabled = true;
             seleccion = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-            CargarImagen(seleccion);
+            if (seleccion.UrlImagen != null)
+            {
+                CargarImagen(seleccion.UrlImagen);
+            }
+            
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
