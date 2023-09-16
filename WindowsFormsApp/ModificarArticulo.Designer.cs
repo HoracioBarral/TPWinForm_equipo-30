@@ -47,6 +47,8 @@
             this.ptbImagen = new System.Windows.Forms.PictureBox();
             this.btnAnterior = new System.Windows.Forms.Button();
             this.btnSiguiente = new System.Windows.Forms.Button();
+            this.advertencia = new System.Windows.Forms.Label();
+            this.btnAgregarImagen = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ptbImagen)).BeginInit();
             this.SuspendLayout();
             // 
@@ -222,6 +224,26 @@
             this.btnSiguiente.TabIndex = 33;
             this.btnSiguiente.Text = "Siguiente";
             this.btnSiguiente.UseVisualStyleBackColor = true;
+            this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
+            // 
+            // advertencia
+            // 
+            this.advertencia.AutoSize = true;
+            this.advertencia.Location = new System.Drawing.Point(141, 391);
+            this.advertencia.Name = "advertencia";
+            this.advertencia.Size = new System.Drawing.Size(481, 13);
+            this.advertencia.TabIndex = 34;
+            this.advertencia.Text = "Este articulo no posee imagenes, si desea agregar una, llene con una ulr y selcci" +
+    "one agregar imagen";
+            // 
+            // btnAgregarImagen
+            // 
+            this.btnAgregarImagen.Location = new System.Drawing.Point(144, 350);
+            this.btnAgregarImagen.Name = "btnAgregarImagen";
+            this.btnAgregarImagen.Size = new System.Drawing.Size(144, 23);
+            this.btnAgregarImagen.TabIndex = 35;
+            this.btnAgregarImagen.Text = "Agregar Imagen";
+            this.btnAgregarImagen.UseVisualStyleBackColor = true;
             // 
             // ModificarArticulo
             // 
@@ -229,6 +251,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Peru;
             this.ClientSize = new System.Drawing.Size(804, 611);
+            this.Controls.Add(this.btnAgregarImagen);
+            this.Controls.Add(this.advertencia);
             this.Controls.Add(this.btnSiguiente);
             this.Controls.Add(this.btnAnterior);
             this.Controls.Add(this.ptbImagen);
@@ -279,5 +303,7 @@
         private System.Windows.Forms.PictureBox ptbImagen;
         private System.Windows.Forms.Button btnAnterior;
         private System.Windows.Forms.Button btnSiguiente;
+        private System.Windows.Forms.Label advertencia;
+        private System.Windows.Forms.Button btnAgregarImagen;
     }
 }
