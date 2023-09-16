@@ -43,6 +43,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtImagen = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnAgregarArticulo
@@ -185,12 +186,20 @@
             this.label1.TabIndex = 15;
             this.label1.Text = "Nombre: ";
             // 
+            // txtImagen
+            // 
+            this.txtImagen.Location = new System.Drawing.Point(144, 307);
+            this.txtImagen.Name = "txtImagen";
+            this.txtImagen.Size = new System.Drawing.Size(307, 20);
+            this.txtImagen.TabIndex = 30;
+            // 
             // ModificarArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Peru;
             this.ClientSize = new System.Drawing.Size(804, 611);
+            this.Controls.Add(this.txtImagen);
             this.Controls.Add(this.btnAgregarArticulo);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.txtPrecio);
@@ -232,5 +241,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtImagen;
     }
 }
