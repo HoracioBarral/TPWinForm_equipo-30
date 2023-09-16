@@ -14,13 +14,21 @@ namespace WindowsFormsApp
 {
     public partial class AgregarArticulo : Form
     {
+        Articulo articuloNuevo = null;
+        List<Imagen> imagenes = new List<Imagen>();
+        //Articulo aux = new Articulo();
+
         public AgregarArticulo()
         {
             InitializeComponent();
         }
 
-        List<Imagen> imagenes = new List<Imagen>();
-        Articulo nuevo = new Articulo();
+        public AgregarArticulo(Articulo articuloNuevo)
+        {
+            InitializeComponent();
+            this.articuloNuevo = articuloNuevo;
+        }
+
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
@@ -50,15 +58,21 @@ namespace WindowsFormsApp
             ArticuloNegocio aux = new ArticuloNegocio();
             try
             {
-                nuevo.Nombre = txtNombre.Text;
-                nuevo.Codigo = txtCodigo.Text;
-                nuevo.Precio = decimal.Parse(txtPrecio.Text);
-                nuevo.Descripcion = txtDescripcion.Text;
-                nuevo.NombreMarca = (Marca)cmbMarcas.SelectedItem;
-                nuevo.TipoCategoria = (Categoria)cmbCategorias.SelectedItem;
-                aux.AgregarArticulo(nuevo);
-                MessageBox.Show("Agregado exitosamente");
-                Close();
+                if (articuloNuevo == null)
+                {
+                    articuloNuevo = new Articulo();
+                    articuloNuevo.Nombre = txtNombre.Text;
+                    articuloNuevo.Codigo = txtCodigo.Text;
+                    articuloNuevo.Precio = decimal.Parse(txtPrecio.Text);
+                    articuloNuevo.Descripcion = txtDescripcion.Text;
+                    articuloNuevo.NombreMarca = (Marca)cmbMarcas.SelectedItem;
+                    articuloNuevo.TipoCategoria = (Categoria)cmbCategorias.SelectedItem;
+                    articuloNuevo.UrlImagen = imagenes;
+                    aux.AgregarArticulo(articuloNuevo);
+                    MessageBox.Show("Agregado exitosamente");
+                    Close();
+                }
+                
             }
             catch (Exception ex)
             {
@@ -75,7 +89,6 @@ namespace WindowsFormsApp
             {
                 imagen.Url = txtImagen.Text;
                 imagenes.Add(imagen);
-                nuevo.UrlImagen = imagenes;
                 txtImagen.Text = string.Empty;
                 MessageBox.Show("Imagen agregada al articulo");
             }

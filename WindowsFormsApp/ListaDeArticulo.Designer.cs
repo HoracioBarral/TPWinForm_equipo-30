@@ -31,6 +31,7 @@
             this.dgvArticulos = new System.Windows.Forms.DataGridView();
             this.ptbImagen = new System.Windows.Forms.PictureBox();
             this.btnCambiarImagen = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbImagen)).BeginInit();
             this.SuspendLayout();
@@ -65,12 +66,23 @@
             this.btnCambiarImagen.UseVisualStyleBackColor = true;
             this.btnCambiarImagen.Click += new System.EventHandler(this.btnCambiarImagen_Click);
             // 
+            // btnModificar
+            // 
+            this.btnModificar.Location = new System.Drawing.Point(307, 504);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(158, 23);
+            this.btnModificar.TabIndex = 4;
+            this.btnModificar.Text = "Modificar Articulo";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            // 
             // ListadoDeArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Peru;
             this.ClientSize = new System.Drawing.Size(804, 611);
+            this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnCambiarImagen);
             this.Controls.Add(this.ptbImagen);
             this.Controls.Add(this.dgvArticulos);
@@ -90,6 +102,7 @@
         private System.Windows.Forms.DataGridView dgvArticulos;
         private System.Windows.Forms.PictureBox ptbImagen;
         private System.Windows.Forms.Button btnCambiarImagen;
+        private System.Windows.Forms.Button btnModificar;
     }
 }
 

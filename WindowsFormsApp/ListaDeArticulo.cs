@@ -79,5 +79,9 @@ namespace WindowsFormsApp
             CargarImagen(seleccion);
         }
 
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

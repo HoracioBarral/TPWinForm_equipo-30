@@ -57,7 +57,7 @@ namespace administrador_datos
 
         }
 
-        public List<Imagen> obtenerImagenes(int id)
+        private List<Imagen> obtenerImagenes(int id)
         {
             List<Imagen> listadoImagenes = new List<Imagen>();
             AccesoDatos datos2 = new AccesoDatos();
@@ -104,6 +104,7 @@ namespace administrador_datos
                 datos.SetParametros("@IdCategoria", nuevo.TipoCategoria.Id);
                 datos.SetParametros("@Precio", nuevo.Precio);
                 datos.EjecutarAccion();
+                AgregarImagenes(nuevo.UrlImagen);
             }
             catch (Exception ex)
             {
@@ -117,7 +118,7 @@ namespace administrador_datos
 
         }
 
-        public void obtenerIdMarcaYCategoria(Articulo nuevo)
+        private void obtenerIdMarcaYCategoria(Articulo nuevo)
         {
             AccesoDatos datos = new AccesoDatos();
             datos.SetConsulta("select c.id IDCategoria, m.id IDMarca from categorias c, marcas m where m.Descripcion=@nombreMarca and c.Descripcion=@nombreCategoria");
@@ -132,6 +133,57 @@ namespace administrador_datos
                     nuevo.TipoCategoria.Id = (int)datos.Lector["IDCategoria"];
                     nuevo.NombreMarca.Id = (int)datos.Lector["IDMarca"];
                 }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+        }
+
+        private void AgregarImagenes(List<Imagen> imagenes)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            int id = obetenerUltimoIdArticulos();
+            foreach(Imagen aux in imagenes)
+            {
+                datos.SetConsulta("insert into imagenes (IdArticulo,ImagenUrl) values(@idArticulo,@UrlImagen)");
+                datos.SetParametros("@idArticulo", id);
+                datos.SetParametros("@UrlImagen", aux.Url);
+                try
+                {
+                    datos.EjecutarAccion();
+                }
+                catch (Exception ex)
+                {
+
+                    throw ex;
+                }
+                finally
+                {
+                    datos.CerrarConexion();
+                }
+            }
+            
+        }
+
+        private int obetenerUltimoIdArticulos()
+        {
+            AccesoDatos datos = new AccesoDatos();
+            datos.SetConsulta("select id from articulos");
+            int id=0;
+            try
+            {
+                datos.Consulta_A_DB();
+                while (datos.Lector.Read())
+                {
+                    id = (int)datos.Lector["id"];
+                }
+                return id;
             }
             catch (Exception ex)
             {
