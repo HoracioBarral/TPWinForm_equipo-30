@@ -45,7 +45,7 @@
             this.btnAgregarArticulo = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.txtImagen = new System.Windows.Forms.TextBox();
-            this.btnAgregarImagen = new System.Windows.Forms.Button();
+            this.btnImagenExtra = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -198,14 +198,15 @@
             this.txtImagen.Size = new System.Drawing.Size(307, 20);
             this.txtImagen.TabIndex = 16;
             // 
-            // btnAgregarImagen
+            // btnImagenExtra
             // 
-            this.btnAgregarImagen.Location = new System.Drawing.Point(147, 335);
-            this.btnAgregarImagen.Name = "btnAgregarImagen";
-            this.btnAgregarImagen.Size = new System.Drawing.Size(159, 23);
-            this.btnAgregarImagen.TabIndex = 17;
-            this.btnAgregarImagen.Text = "Agregar Imagen";
-            this.btnAgregarImagen.UseVisualStyleBackColor = true;
+            this.btnImagenExtra.Location = new System.Drawing.Point(147, 335);
+            this.btnImagenExtra.Name = "btnImagenExtra";
+            this.btnImagenExtra.Size = new System.Drawing.Size(159, 23);
+            this.btnImagenExtra.TabIndex = 17;
+            this.btnImagenExtra.Text = "Agregar Imagen";
+            this.btnImagenExtra.UseVisualStyleBackColor = true;
+            this.btnImagenExtra.Click += new System.EventHandler(this.btnImagenExtra_Click);
             // 
             // AgregarArticulo
             // 
@@ -213,7 +214,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Peru;
             this.ClientSize = new System.Drawing.Size(804, 611);
-            this.Controls.Add(this.btnAgregarImagen);
+            this.Controls.Add(this.btnImagenExtra);
             this.Controls.Add(this.txtImagen);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.btnAgregarArticulo);
@@ -243,34 +244,22 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-<<<<<<< HEAD
         private System.Windows.Forms.TextBox txtNombre;
-=======
-        private System.Windows.Forms.TextBox txtNombre;
->>>>>>> db9ede80c37fbcb0da5e1e1dae8768856c330918
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-<<<<<<< HEAD
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.ComboBox cmbCategorias;
         private System.Windows.Forms.ComboBox cmbMarcas;
         private System.Windows.Forms.TextBox txtPrecio;
-=======
-        private System.Windows.Forms.TextBox txtCodigo;
-        private System.Windows.Forms.TextBox txtDescripcion;
-        private System.Windows.Forms.ComboBox cmbCategorias;
-        private System.Windows.Forms.ComboBox cmbMarcas;
-        private System.Windows.Forms.TextBox txtPrecio;
->>>>>>> db9ede80c37fbcb0da5e1e1dae8768856c330918
         private System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.Button btnAgregarArticulo;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtImagen;
-        private System.Windows.Forms.Button btnAgregarImagen;
+        private System.Windows.Forms.Button btnImagenExtra;
     }
 }
