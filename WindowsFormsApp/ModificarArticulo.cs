@@ -1,4 +1,5 @@
-﻿using moldes_clases;
+﻿using administrador_datos;
+using moldes_clases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,11 +14,11 @@ namespace WindowsFormsApp
 {
     public partial class ModificarArticulo : Form
     {
-        private Articulo articuloAmodificar;
-        public ModificarArticulo(Articulo articuloAmodificar)
+        private Articulo articulo;
+        public ModificarArticulo(Articulo articulo)
         {
             InitializeComponent();
-            this.articuloAmodificar = articuloAmodificar;
+            this.articulo = articulo;
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -27,7 +28,23 @@ namespace WindowsFormsApp
 
         private void ModificarArticulo_Load(object sender, EventArgs e)
         {
-            
+            MarcaNegocio listadoMarcas = new MarcaNegocio();
+            CategoriaNegocio listadoCategorias = new CategoriaNegocio();
+            try
+            {
+                txtNombre.Text = articulo.Nombre;
+                txtCodigo.Text = articulo.Codigo;
+                txtPrecio.Text = articulo.Precio.ToString();
+                txtDescripcion.Text = articulo.Descripcion;
+                cmbMarcas.DataSource = listadoMarcas.Listar();
+                cmbCategorias.DataSource = listadoCategorias.Listar();
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void btnAgregarArticulo_Click(object sender, EventArgs e)

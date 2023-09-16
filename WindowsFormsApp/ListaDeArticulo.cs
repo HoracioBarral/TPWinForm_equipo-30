@@ -81,7 +81,7 @@ namespace WindowsFormsApp
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            using (ModificarArticulo ventanaMArticulo = new ModificarArticulo())
+            using (ModificarArticulo ventanaMArticulo = new ModificarArticulo(seleccion))
                 ventanaMArticulo.ShowDialog();
         }
 
