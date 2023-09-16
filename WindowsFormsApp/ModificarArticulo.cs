@@ -33,8 +33,6 @@ namespace WindowsFormsApp
             indice = 0;
             MarcaNegocio listadoMarcas = new MarcaNegocio();
             CategoriaNegocio listadoCategorias = new CategoriaNegocio();
-            btnAnterior.Enabled = false;
-            btnSiguiente.Enabled = false;
             try
             {
                 txtNombre.Text = articulo.Nombre;
@@ -49,7 +47,11 @@ namespace WindowsFormsApp
                     imagenes = articulo.UrlImagen;
                     CargarImagenes();
                 }
-
+                else
+                {
+                    btnAnterior.Enabled = false;
+                    btnSiguiente.Enabled = false;
+                }
             }
             catch (Exception ex)
             {
@@ -62,20 +64,21 @@ namespace WindowsFormsApp
 
         private void CargarImagenes()
         {
-            if (indice >= imagenes.Count)
-            {
-                btnSiguiente.Enabled = false;
-            }
             try
             {
                 txtImagen.Text = imagenes[indice].Url.ToString();
                 ptbImagen.Load(imagenes[indice].Url);
-                indice++;
             }
             catch (Exception ex)
             {
 
                 MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                indice++;
+                if (indice >= imagenes.Count)
+                    btnSiguiente.Enabled = false;
             }
         }
 
@@ -86,16 +89,9 @@ namespace WindowsFormsApp
 
         private void btnSiguiente_Click(object sender, EventArgs e)
         {
-            if (indice >= imagenes.Count)
-            {
-                btnSiguiente.Enabled = false;
-            }
-            else
-            {
-                btnSiguiente.Enabled = true;
-                indice++;
-                CargarImagenes();
-            }
+            
+          CargarImagenes();
+            
         }
     }
 }
