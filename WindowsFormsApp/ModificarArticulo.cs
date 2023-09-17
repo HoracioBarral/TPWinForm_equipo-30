@@ -31,6 +31,8 @@ namespace WindowsFormsApp
         private void ModificarArticulo_Load(object sender, EventArgs e)
         {
             indice = 0;
+            btnAnterior.Enabled = false;
+            btnSiguiente.Enabled = false;
             MarcaNegocio listadoMarcas = new MarcaNegocio();
             CategoriaNegocio listadoCategorias = new CategoriaNegocio();
             try
@@ -47,11 +49,6 @@ namespace WindowsFormsApp
                     imagenes = articulo.UrlImagen;
                     CargarImagenes();
                 }
-                else
-                {
-                    btnAnterior.Enabled = false;
-                    btnSiguiente.Enabled = false;
-                }
             }
             catch (Exception ex)
             {
@@ -64,22 +61,65 @@ namespace WindowsFormsApp
 
         private void CargarImagenes()
         {
+            if (imagenes.Count > 1)
+            {
+                btnSiguiente.Enabled = true;
+            }
             try
             {
-                txtImagen.Text = imagenes[indice].Url.ToString();
-                ptbImagen.Load(imagenes[indice].Url);
+                ptbImagen.Load(imagenes[0].Url);
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.ToString());
             }
             finally
             {
                 indice++;
-                if (indice >= imagenes.Count)
-                    btnSiguiente.Enabled = false;
             }
+        }   
+
+        private void CargarImagenes(bool i)
+        {
+            
+                try
+                {
+                    if (i == false)
+                        indice--;
+                    else
+                        indice++;
+                    if (indice > imagenes.Count-1)
+                        {
+                            btnSiguiente.Enabled = false;
+                            indice = imagenes.Count - 1;
+                        }
+                   ptbImagen.Load(imagenes[indice].Url);
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.ToString());
+                }
+                finally
+                {
+                    if (indice >= imagenes.Count-1)
+                    
+                       btnSiguiente.Enabled = false;
+                    
+                    else 
+                        btnSiguiente.Enabled = true;
+                     
+
+                    if (indice > 0)
+                    
+                    btnAnterior.Enabled = true;
+                    
+                    else
+                    
+                    btnAnterior.Enabled = false;
+                       
+
+                }
         }
 
         private void btnAgregarArticulo_Click(object sender, EventArgs e)
@@ -89,9 +129,17 @@ namespace WindowsFormsApp
 
         private void btnSiguiente_Click(object sender, EventArgs e)
         {
-            
-          CargarImagenes();
-            
+            CargarImagenes(true);
+        }
+
+        private void btnAgregarImagen_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAnterior_Click(object sender, EventArgs e)
+        {
+            CargarImagenes(false);
         }
     }
 }
