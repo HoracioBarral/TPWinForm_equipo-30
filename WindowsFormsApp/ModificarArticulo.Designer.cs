@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnAgregarArticulo = new System.Windows.Forms.Button();
+            this.btnModificarArticulo = new System.Windows.Forms.Button();
             this.btnVolver = new System.Windows.Forms.Button();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.cmbMarcas = new System.Windows.Forms.ComboBox();
@@ -53,17 +53,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.ptbImagen)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnAgregarArticulo
+            // btnModificarArticulo
             // 
-            this.btnAgregarArticulo.BackColor = System.Drawing.Color.Silver;
-            this.btnAgregarArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarArticulo.Location = new System.Drawing.Point(312, 507);
-            this.btnAgregarArticulo.Name = "btnAgregarArticulo";
-            this.btnAgregarArticulo.Size = new System.Drawing.Size(139, 63);
-            this.btnAgregarArticulo.TabIndex = 29;
-            this.btnAgregarArticulo.Text = "Modificar Articulo";
-            this.btnAgregarArticulo.UseVisualStyleBackColor = false;
-            this.btnAgregarArticulo.Click += new System.EventHandler(this.btnAgregarArticulo_Click);
+            this.btnModificarArticulo.BackColor = System.Drawing.Color.Silver;
+            this.btnModificarArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificarArticulo.Location = new System.Drawing.Point(312, 507);
+            this.btnModificarArticulo.Name = "btnModificarArticulo";
+            this.btnModificarArticulo.Size = new System.Drawing.Size(139, 63);
+            this.btnModificarArticulo.TabIndex = 29;
+            this.btnModificarArticulo.Text = "Modificar Articulo";
+            this.btnModificarArticulo.UseVisualStyleBackColor = false;
+            this.btnModificarArticulo.Click += new System.EventHandler(this.btnModificarArticulo_Click);
             // 
             // btnVolver
             // 
@@ -272,7 +272,7 @@
             this.Controls.Add(this.btnAnterior);
             this.Controls.Add(this.ptbImagen);
             this.Controls.Add(this.txtImagen);
-            this.Controls.Add(this.btnAgregarArticulo);
+            this.Controls.Add(this.btnModificarArticulo);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.cmbMarcas);
@@ -299,7 +299,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnAgregarArticulo;
+        private System.Windows.Forms.Button btnModificarArticulo;
         private System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.ComboBox cmbMarcas;

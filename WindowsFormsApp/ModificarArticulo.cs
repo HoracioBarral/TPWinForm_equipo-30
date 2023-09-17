@@ -138,10 +138,7 @@ namespace WindowsFormsApp
                 }
         }
 
-        private void btnAgregarArticulo_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void btnSiguiente_Click(object sender, EventArgs e)
         {
@@ -163,5 +160,27 @@ namespace WindowsFormsApp
             
         }
 
+        private void btnModificarArticulo_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            try
+            {
+                articulo.Codigo = txtCodigo.Text;
+                articulo.Nombre = txtNombre.Text;
+                articulo.Descripcion = txtDescripcion.Text;
+                articulo.Precio = Decimal.Parse(txtPrecio.Text);
+                articulo.NombreMarca = (Marca)cmbMarcas.SelectedItem;
+                articulo.TipoCategoria = (Categoria)cmbCategorias.SelectedItem;
+                negocio.modificarArticulo(articulo);
+                MessageBox.Show("Articulo Modificado");
+                Close();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+            
+        }
     }
 }

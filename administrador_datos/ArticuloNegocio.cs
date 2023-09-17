@@ -208,19 +208,50 @@ namespace administrador_datos
 
         public void eliminarArticulo (int id)
         {
+            AccesoDatos datos = new AccesoDatos();
             try
             {
-                AccesoDatos datos = new AccesoDatos();
                 datos.SetConsulta("delete from ARTICULOS where id = @id");
                 datos.SetParametros("@id", id);
                 datos.EjecutarAccion();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
-            } 
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConexion(); 
+            }
+        }
 
+
+        public void modificarArticulo(Articulo artModificado)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.SetConsulta("update articulos set Codigo=@codigo,Nombre=@nombre,descripcion=@Descripcion,idMarca=@idMarca,idCategoria=@idCategoria,Precio=@precio  where id=@id");
+                datos.SetParametros("@codigo",artModificado.Codigo);
+                datos.SetParametros("@nombre",artModificado.Nombre);
+                datos.SetParametros("@Descripcion",artModificado.Descripcion);
+                datos.SetParametros("@idMarca", artModificado.NombreMarca.Id);
+                datos.SetParametros("@idCategoria", artModificado.TipoCategoria.Id);
+                datos.SetParametros("@precio", artModificado.TipoCategoria.Id);
+                datos.SetParametros("@id", artModificado.Id);
+
+                datos.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
         }
 
 
