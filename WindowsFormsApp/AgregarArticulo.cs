@@ -50,17 +50,27 @@ namespace WindowsFormsApp
             ArticuloNegocio aux = new ArticuloNegocio();
             try
             {
-                   articuloNuevo = new Articulo();
-                   articuloNuevo.Nombre = txtNombre.Text;
-                   articuloNuevo.Codigo = txtCodigo.Text;
-                   articuloNuevo.Precio = decimal.Parse(txtPrecio.Text);
-                   articuloNuevo.Descripcion = txtDescripcion.Text;
-                   articuloNuevo.NombreMarca = (Marca)cmbMarcas.SelectedItem;
-                   articuloNuevo.TipoCategoria = (Categoria)cmbCategorias.SelectedItem;
-                   articuloNuevo.UrlImagen = imagenes;
-                   aux.AgregarArticulo(articuloNuevo);
-                   MessageBox.Show("Agregado exitosamente");
-                   Close();
+
+                if (!ValidarDatos())
+                {
+                    articuloNuevo = new Articulo();
+                    articuloNuevo.Nombre = txtNombre.Text;
+                    articuloNuevo.Codigo = txtCodigo.Text;
+                    articuloNuevo.Precio = decimal.Parse(txtPrecio.Text);
+                    articuloNuevo.Descripcion = txtDescripcion.Text;
+                    articuloNuevo.NombreMarca = (Marca)cmbMarcas.SelectedItem;
+                    articuloNuevo.TipoCategoria = (Categoria)cmbCategorias.SelectedItem;
+                    articuloNuevo.UrlImagen = imagenes;
+                    aux.AgregarArticulo(articuloNuevo);
+                    MessageBox.Show("Agregado exitosamente");
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("Faltan datos por ingresar o estan mal cargados");
+                    return;
+                }
+                
             }
             catch (Exception ex)
             {
@@ -92,6 +102,44 @@ namespace WindowsFormsApp
 
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private bool ValidarDatos()
+        {
+            if (cmbCategorias.SelectedIndex < 0)
+
+                return true;
+
+
+            if (cmbMarcas.SelectedIndex < 0)
+
+                return true;
+
+            if (string.IsNullOrEmpty(txtCodigo.Text) || string.IsNullOrEmpty(txtNombre.Text))
+                return true;
+            if (string.IsNullOrEmpty(txtDescripcion.Text) || string.IsNullOrEmpty(txtDescripcion.Text))
+                return true;
+            if (string.IsNullOrEmpty(txtPrecio.Text))
+            {
+                return true;
+            }
+            if (!VerificarNumeros())
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+
+        private bool VerificarNumeros()
+        {
+            foreach (char c in txtPrecio.Text)
+            {
+                if (!(char.IsNumber(c)))
+                    return false;
+            }
+            return true;
         }
     }
 }

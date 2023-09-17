@@ -17,12 +17,10 @@ namespace WindowsFormsApp
         public ListadoDeArticulo()
         {
             InitializeComponent();
-            ListarArticulos();
         }
         private int indice = 0;
         private List<Articulo> articulos;
         private Articulo seleccion;
-        private int i;
 
         private void ListarArticulos()
         {
@@ -42,27 +40,25 @@ namespace WindowsFormsApp
         }
 
 
-        public void CargarImagen(Articulo aux)
+        public void CargarImagen(List<Imagen> imagenes)
         {
-            List<Imagen> imagenes = aux.UrlImagen;
-            i = imagenes.Count;
-            if (indice < i)
-            {
-                btnCambiarImagen.Enabled = true;
-                try
-                {
-                    ptbImagen.Load(imagenes[indice].Url);
+            
+             try
+                 {
+                   ptbImagen.Load(imagenes[indice].Url);
 
-                }
-                catch (Exception)
-                {
-
+                 }
+             catch (Exception)
+                  {
                     ptbImagen.Load("https://efectocolibri.com/wp-content/uploads/2021/01/placeholder.png");
-                }
-            }
-            else
+                   }
+            finally
             {
-                btnCambiarImagen.Enabled = false;
+                indice++;
+                if(indice >= imagenes.Count)
+                {
+                    btnCambiarImagen.Enabled = false;
+                }
             }
         }
 
@@ -70,21 +66,40 @@ namespace WindowsFormsApp
 
         private void btnCambiarImagen_Click(object sender, EventArgs e)
         {
-            indice++;
-            CargarImagen(seleccion);
+            
+            if (seleccion.UrlImagen != null)
+             {
+                CargarImagen(seleccion.UrlImagen);
+             }
+            else
+            {
+                btnCambiarImagen.Enabled = false;
+                ptbImagen.Load("https://efectocolibri.com/wp-content/uploads/2021/01/placeholder.png");
+            }
         }
 
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
         {
             indice = 0;
+            btnCambiarImagen.Enabled = true;
             seleccion = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-            CargarImagen(seleccion);
+            if (seleccion.UrlImagen != null)
+            {
+                CargarImagen(seleccion.UrlImagen);
+            }
+            else
+            {
+                btnCambiarImagen.Enabled = false;
+                ptbImagen.Load("https://efectocolibri.com/wp-content/uploads/2021/01/placeholder.png");
+            }
+            
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            using (ModificarArticulo ventanaMArticulo = new ModificarArticulo())
+            using (ModificarArticulo ventanaMArticulo = new ModificarArticulo(seleccion))
                 ventanaMArticulo.ShowDialog();
+            ListarArticulos();
         }
 
         private void btnEliminarFisico_Click(object sender, EventArgs e)
@@ -99,10 +114,11 @@ namespace WindowsFormsApp
                     seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
                     negocio.eliminarArticulo(seleccionado.Id);
                     ListarArticulos();
-                    
                 }
+
+
             }
-            catch (Exception ex)
+            catch (Exception ex )
             {
                 MessageBox.Show(ex.ToString());
 
@@ -110,10 +126,9 @@ namespace WindowsFormsApp
             }
         }
 
-        private void btnVolver_Click(object sender, EventArgs e)
+        private void ListadoDeArticulo_Load(object sender, EventArgs e)
         {
-            this.Close();
-
+            ListarArticulos();
         }
     }
 }

@@ -14,5 +14,10 @@ namespace moldes_clases
 
         public string Url { get; set; }
 
+        public override string ToString()
+        {
+            return Url;
+        }
+
     }
 }

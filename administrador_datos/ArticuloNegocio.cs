@@ -17,7 +17,7 @@ namespace administrador_datos
         {
             List<Articulo> listaArt = new List<Articulo>();
             AccesoDatos datos = new AccesoDatos();
-            datos.SetConsulta("select a.id,a.Codigo,a.Nombre,a.Descripcion,a.Precio,c.Descripcion Tipo,m.Descripcion Marca from articulos a left join categorias c on a.IdCategoria=c.Id inner join marcas m on a.IdMarca=m.Id");
+            datos.SetConsulta("select a.id,a.Codigo,a.Nombre,a.Descripcion,a.Precio,c.Descripcion Tipo,m.Descripcion Marca,m.Id idMarca, c.Id idCategoria from articulos a left join categorias c on a.IdCategoria=c.Id inner join marcas m on a.IdMarca=m.Id");
             try
             {
                 datos.Consulta_A_DB();
@@ -25,24 +25,34 @@ namespace administrador_datos
                 {
                     Articulo art = new Articulo();
                     art.Id = (int)datos.Lector["id"];
-                    art.Codigo = (string)datos.Lector["Codigo"];
-                    art.Nombre = (string)datos.Lector["Nombre"];
-                    art.Descripcion = (string)datos.Lector["Descripcion"];
-                    art.Precio = (decimal)datos.Lector["Precio"];
-                    art.TipoCategoria = new Categoria();
-
+                    if(!(datos.Lector["Codigo"] is DBNull))
+                        art.Codigo = (string)datos.Lector["Codigo"];
+                    if (!(datos.Lector["Nombre"] is DBNull))
+                        art.Nombre = (string)datos.Lector["Nombre"];
+                    if (!(datos.Lector["Descripcion"] is DBNull))
+                        art.Descripcion = (string)datos.Lector["Descripcion"];
+                    if (!(datos.Lector["Precio"] is DBNull))
+                        art.Precio = (decimal)datos.Lector["Precio"];
                     if (!(datos.Lector["Tipo"] is DBNull))
                     {
+                        art.TipoCategoria = new Categoria();
                         art.TipoCategoria.Descripcion = (string)datos.Lector["Tipo"];
+                        if (!(datos.Lector["idCategoria"] is DBNull))
+                            art.TipoCategoria.Id = (int)datos.Lector["idCategoria"];
                     }
-                    else
-                        art.TipoCategoria.Descripcion = "Generico";
+                    if (!(datos.Lector["Marca"] is DBNull))
+                    {
+                        art.NombreMarca = new Marca();
+                        art.NombreMarca.Descripcion = (string)datos.Lector["Marca"];
+                        if (!(datos.Lector["idMarca"] is DBNull))
+                            art.NombreMarca.Id = (int)datos.Lector["idMarca"];
+                    }
+                    
 
-                    art.NombreMarca = new Marca();
-                    art.NombreMarca.Descripcion = (string)datos.Lector["Marca"];
-                    List<Imagen> imagenes = new List<Imagen>();
+                    List<Imagen> imagenes;
                     imagenes = obtenerImagenes(art.Id);
-                    art.UrlImagen = imagenes;
+                    if (imagenes.Count > 0)
+                        art.UrlImagen = imagenes;
                     listaArt.Add(art);
                 }
                 return listaArt;
@@ -62,20 +72,20 @@ namespace administrador_datos
         private List<Imagen> obtenerImagenes(int id)
         {
             List<Imagen> listadoImagenes = new List<Imagen>();
-            AccesoDatos datos2 = new AccesoDatos();
-            datos2.SetConsulta("select i.id,i.imagenUrl,a.Id articulo from imagenes i, articulos a where a.Id=i.IdArticulo");
+            AccesoDatos datos = new AccesoDatos();
+            datos.SetConsulta("select i.id,i.imagenUrl,a.Id articulo from imagenes i, articulos a where a.Id=i.IdArticulo");
             try
             {
-                datos2.Consulta_A_DB();
-                while (datos2.Lector.Read())
+                datos.Consulta_A_DB();
+                while (datos.Lector.Read())
                 {
-                    int articulo = (int)datos2.Lector["articulo"];
+                    int articulo = (int)datos.Lector["articulo"];
                     if (articulo == id)
                     {
                         Imagen imagen = new Imagen();
-                        imagen.Id = (int)datos2.Lector["id"];
+                        imagen.Id = (int)datos.Lector["id"];
                         imagen.IdArticulo = articulo;
-                        imagen.Url = (string)datos2.Lector["imagenUrl"];
+                        imagen.Url = (string)datos.Lector["imagenUrl"];
                         listadoImagenes.Add(imagen);
                     }
                 }
@@ -88,7 +98,7 @@ namespace administrador_datos
             }
             finally
             {
-                datos2.CerrarConexion();
+                datos.CerrarConexion();
             }
         }
 
@@ -149,7 +159,7 @@ namespace administrador_datos
 
         private void AgregarImagenes(List<Imagen> imagenes)
         {
-            int id = obetenerUltimoIdArticulos();
+            int id = obtenerUltimoIdArticulos();
             foreach (Imagen aux in imagenes)
             {
                 AccesoDatos datos = new AccesoDatos();
@@ -173,8 +183,7 @@ namespace administrador_datos
             
         }
 
-
-        private int obetenerUltimoIdArticulos()
+        private int obtenerUltimoIdArticulos()
         {
             AccesoDatos datos = new AccesoDatos();
             datos.SetConsulta("select id from articulos");
@@ -201,21 +210,93 @@ namespace administrador_datos
 
         public void eliminarArticulo (int id)
         {
+            AccesoDatos datos = new AccesoDatos();
             try
             {
-                AccesoDatos datos = new AccesoDatos();
                 datos.SetConsulta("delete from ARTICULOS where id = @id");
                 datos.SetParametros("@id", id);
                 datos.EjecutarAccion();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
-            } 
-
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConexion(); 
+            }
         }
 
 
+        public void modificarArticulo(Articulo artModificado)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.SetConsulta("update articulos set Codigo=@codigo,Nombre=@nombre,descripcion=@Descripcion,idMarca=@idMarca,idCategoria=@idCategoria,Precio=@precio  where id=@id");
+                datos.SetParametros("@codigo",artModificado.Codigo);
+                datos.SetParametros("@nombre",artModificado.Nombre);
+                datos.SetParametros("@Descripcion",artModificado.Descripcion);
+                datos.SetParametros("@idMarca", artModificado.NombreMarca.Id);
+                datos.SetParametros("@idCategoria", artModificado.TipoCategoria.Id);
+                datos.SetParametros("@precio", artModificado.Precio);
+                datos.SetParametros("@id", artModificado.Id);
+
+                datos.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+        }
+
+        public void InsertarImagenes(Imagen nueva, int idArt)
+        {
+
+            AccesoDatos datos = new AccesoDatos();
+            datos.SetConsulta("insert into imagenes (idArticulo,ImagenUrl) values(@idarticulo,@UrlImagen)");
+            datos.SetParametros("@idarticulo", idArt);
+            datos.SetParametros("@UrlImagen", nueva.Url);
+            try
+            {
+                datos.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+        }
+
+        public void EliminarImagenes(string url, int id)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.SetConsulta("delete from imagenes where idArticulo=@id and ImagenUrl=@url");
+                datos.SetParametros("@id", id);
+                datos.SetParametros("@url", url);
+                datos.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+        }
     }
 }
