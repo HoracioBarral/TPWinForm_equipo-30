@@ -234,10 +234,10 @@
             this.advertencia.AutoSize = true;
             this.advertencia.Location = new System.Drawing.Point(141, 391);
             this.advertencia.Name = "advertencia";
-            this.advertencia.Size = new System.Drawing.Size(481, 13);
+            this.advertencia.Size = new System.Drawing.Size(502, 13);
             this.advertencia.TabIndex = 34;
-            this.advertencia.Text = "Este articulo no posee imagenes, si desea agregar una, llene con una ulr y selcci" +
-    "one agregar imagen";
+            this.advertencia.Text = "Este articulo no posee imagenes, si desea agregar una, complete con una ulr y sel" +
+    "ccione agregar imagen";
             // 
             // btnAgregarImagen
             // 
