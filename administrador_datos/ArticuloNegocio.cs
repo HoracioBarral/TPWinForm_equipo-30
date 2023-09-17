@@ -275,5 +275,26 @@ namespace administrador_datos
                 datos.CerrarConexion();
             }
         }
+
+        public void EliminarImagenes(string url, int id)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.SetConsulta("delete from imagenes where id=@id and ImagenUrl=@url");
+                datos.SetParametros("@id", id);
+                datos.SetParametros("@url", url);
+                datos.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+        }
     }
 }

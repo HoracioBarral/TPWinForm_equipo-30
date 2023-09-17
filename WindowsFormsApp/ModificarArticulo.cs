@@ -17,6 +17,7 @@ namespace WindowsFormsApp
         private Articulo articulo;
         private int indice;
         private List<Imagen> imagenes;
+        private int contadorBtn;
         public ModificarArticulo(Articulo articulo)
         {
             InitializeComponent();
@@ -31,6 +32,7 @@ namespace WindowsFormsApp
         private void ModificarArticulo_Load(object sender, EventArgs e)
         {
             indice = 0;
+            contadorBtn = 0;
             btnAnterior.Enabled = false;
             btnSiguiente.Enabled = false;
             MarcaNegocio listadoMarcas = new MarcaNegocio();
@@ -86,14 +88,11 @@ namespace WindowsFormsApp
             {
                 ptbImagen.Load(imagenes[0].Url);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 ptbImagen.Load("https://efectocolibri.com/wp-content/uploads/2021/01/placeholder.png");
             }
-            finally
-            {
-                indice++;
-            }
+         
         }   
 
         private void CargarImagenes(bool i)
@@ -104,11 +103,8 @@ namespace WindowsFormsApp
                     if (i == false)
                         indice--;
                     else
-                        indice++;
-                    if (indice > imagenes.Count-1)
-                        {
-                            indice = imagenes.Count - 1;
-                        }
+                        if(contadorBtn>0)
+                            indice++;
                    ptbImagen.Load(imagenes[indice].Url);
                 }
                 catch (Exception ex)
@@ -142,6 +138,7 @@ namespace WindowsFormsApp
 
         private void btnSiguiente_Click(object sender, EventArgs e)
         {
+            contadorBtn++;
             CargarImagenes(true);
         }
 
@@ -151,7 +148,7 @@ namespace WindowsFormsApp
             ArticuloNegocio negocio = new ArticuloNegocio();
             string agregada;
             agregada = txtImagen.Text;
-            if(agregada.Length == 0)
+            if(string.IsNullOrEmpty(agregada))
             {
                 MessageBox.Show("Ingrese una URL antes de seleccionar el boton de agregar Imagen");
             }
@@ -181,7 +178,20 @@ namespace WindowsFormsApp
 
         private void btnEliminarImagen_Click(object sender, EventArgs e)
         {
-            
+            DialogResult respuesta = MessageBox.Show("Usted quiere eliminar esta iamgen?", "Eliminando", MessageBoxButtons.YesNo);
+            if (respuesta == DialogResult.Yes)
+            {
+                ArticuloNegocio negocio = new ArticuloNegocio();
+                try
+                {
+                    negocio.EliminarImagenes(articulo.UrlImagen[indice].Url, articulo.Id);
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.ToString());
+                }
+            }
         }
 
         private void btnModificarArticulo_Click(object sender, EventArgs e)
