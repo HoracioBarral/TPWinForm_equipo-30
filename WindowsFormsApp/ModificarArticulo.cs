@@ -195,8 +195,13 @@ namespace WindowsFormsApp
                 articulo.Precio = Decimal.Parse(txtPrecio.Text);
                 articulo.NombreMarca = (Marca)cmbMarcas.SelectedItem;
                 articulo.TipoCategoria = (Categoria)cmbCategorias.SelectedItem;
-                negocio.modificarArticulo(articulo);
-                
+                if (ValidarDatos() == true)
+                    negocio.modificarArticulo(articulo);
+                else
+                {
+                    MessageBox.Show("Faltan datos por ingresar");
+                    return;
+                }
                 MessageBox.Show("Articulo Modificado");
                 Close();
             }
@@ -206,6 +211,25 @@ namespace WindowsFormsApp
                 MessageBox.Show(ex.ToString());
             }
             
+        }
+
+
+        private bool ValidarDatos()
+        {
+            if(cmbCategorias.SelectedIndex <0)
+            
+                return false;
+            
+            
+            if(cmbMarcas.SelectedIndex < 0)
+            
+                return false;
+
+            if (string.IsNullOrEmpty(txtCodigo.Text) || string.IsNullOrEmpty(txtNombre.Text))
+                return false;
+            if (string.IsNullOrEmpty(txtDescripcion.Text) || string.IsNullOrEmpty(txtDescripcion.Text))
+                return false;
+            return true;
         }
     }
 }
