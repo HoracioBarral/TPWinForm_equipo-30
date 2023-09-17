@@ -79,27 +79,32 @@
             this.Nombre.Location = new System.Drawing.Point(297, 236);
             this.Nombre.Name = "Nombre";
             this.Nombre.Size = new System.Drawing.Size(256, 20);
-            this.Nombre.TabIndex = 3;
+            this.Nombre.TabIndex = 1;
+            this.Nombre.Click += new System.EventHandler(this.button1_Click);
             this.Nombre.TextChanged += new System.EventHandler(this.Nombre_TextChanged);
             // 
             // btningresarNombre
             // 
-            this.btningresarNombre.Location = new System.Drawing.Point(363, 301);
+            this.btningresarNombre.BackColor = System.Drawing.Color.Silver;
+            this.btningresarNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btningresarNombre.Location = new System.Drawing.Point(363, 287);
             this.btningresarNombre.Name = "btningresarNombre";
-            this.btningresarNombre.Size = new System.Drawing.Size(94, 31);
-            this.btningresarNombre.TabIndex = 4;
+            this.btningresarNombre.Size = new System.Drawing.Size(114, 45);
+            this.btningresarNombre.TabIndex = 2;
             this.btningresarNombre.Text = "Ingresar";
-            this.btningresarNombre.UseVisualStyleBackColor = true;
+            this.btningresarNombre.UseVisualStyleBackColor = false;
             this.btningresarNombre.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnSalir
             // 
+            this.btnSalir.BackColor = System.Drawing.Color.Silver;
+            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.Location = new System.Drawing.Point(708, 410);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 48);
-            this.btnSalir.TabIndex = 5;
+            this.btnSalir.TabIndex = 3;
             this.btnSalir.Text = "SALIR";
-            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // errorProvider1
@@ -118,6 +123,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(820, 520);
+            this.MinimumSize = new System.Drawing.Size(820, 520);
             this.Name = "MenuPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MenuPrincipal";

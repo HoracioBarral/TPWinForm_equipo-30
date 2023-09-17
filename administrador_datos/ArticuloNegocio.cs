@@ -11,6 +11,8 @@ namespace administrador_datos
 {
     public class ArticuloNegocio
     {
+        public object MessageBox { get; private set; }
+
         public List<Articulo> listar()
         {
             List<Articulo> listaArt = new List<Articulo>();
@@ -170,6 +172,7 @@ namespace administrador_datos
             }
             
         }
+
 
         private int obetenerUltimoIdArticulos()
         {

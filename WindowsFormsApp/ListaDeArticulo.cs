@@ -62,9 +62,11 @@ namespace WindowsFormsApp
             }
             else
             {
-               btnCambiarImagen.Enabled = false;
+                btnCambiarImagen.Enabled = false;
             }
         }
+
+        
 
         private void btnCambiarImagen_Click(object sender, EventArgs e)
         {
@@ -91,21 +93,27 @@ namespace WindowsFormsApp
             Articulo seleccionado;
             try
             {
-                DialogResult respuesta = MessageBox.Show("Usted quiere eliminar este articulo?" , "Eliminando",MessageBoxButtons.YesNo);
+                DialogResult respuesta = MessageBox.Show("Usted quiere eliminar este articulo?", "Eliminando", MessageBoxButtons.YesNo , MessageBoxIcon.Warning);
                 if (respuesta == DialogResult.Yes)
                 {
                     seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
                     negocio.eliminarArticulo(seleccionado.Id);
+                    ListarArticulos();
+                    
                 }
-                
-                
             }
-            catch (Exception ex )
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
 
                 throw;
             }
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
         }
     }
 }

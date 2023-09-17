@@ -130,14 +130,14 @@
             this.txtCodigo.Location = new System.Drawing.Point(147, 112);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(50, 20);
-            this.txtCodigo.TabIndex = 8;
+            this.txtCodigo.TabIndex = 2;
             // 
             // txtDescripcion
             // 
             this.txtDescripcion.Location = new System.Drawing.Point(147, 237);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(307, 20);
-            this.txtDescripcion.TabIndex = 9;
+            this.txtDescripcion.TabIndex = 6;
             // 
             // cmbCategorias
             // 
@@ -146,7 +146,7 @@
             this.cmbCategorias.Location = new System.Drawing.Point(147, 203);
             this.cmbCategorias.Name = "cmbCategorias";
             this.cmbCategorias.Size = new System.Drawing.Size(121, 21);
-            this.cmbCategorias.TabIndex = 10;
+            this.cmbCategorias.TabIndex = 5;
             // 
             // cmbMarcas
             // 
@@ -155,14 +155,14 @@
             this.cmbMarcas.Location = new System.Drawing.Point(147, 172);
             this.cmbMarcas.Name = "cmbMarcas";
             this.cmbMarcas.Size = new System.Drawing.Size(121, 21);
-            this.cmbMarcas.TabIndex = 11;
+            this.cmbMarcas.TabIndex = 4;
             // 
             // txtPrecio
             // 
             this.txtPrecio.Location = new System.Drawing.Point(147, 142);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(50, 20);
-            this.txtPrecio.TabIndex = 12;
+            this.txtPrecio.TabIndex = 3;
             // 
             // btnVolver
             // 
@@ -171,7 +171,7 @@
             this.btnVolver.Location = new System.Drawing.Point(698, 524);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(88, 48);
-            this.btnVolver.TabIndex = 13;
+            this.btnVolver.TabIndex = 10;
             this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = false;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
@@ -183,7 +183,7 @@
             this.btnAgregarArticulo.Location = new System.Drawing.Point(315, 509);
             this.btnAgregarArticulo.Name = "btnAgregarArticulo";
             this.btnAgregarArticulo.Size = new System.Drawing.Size(139, 63);
-            this.btnAgregarArticulo.TabIndex = 14;
+            this.btnAgregarArticulo.TabIndex = 9;
             this.btnAgregarArticulo.Text = "Agregar Articulo";
             this.btnAgregarArticulo.UseVisualStyleBackColor = false;
             this.btnAgregarArticulo.Click += new System.EventHandler(this.btnAgregarArticulo_Click);
@@ -202,14 +202,14 @@
             this.txtImagen.Location = new System.Drawing.Point(147, 305);
             this.txtImagen.Name = "txtImagen";
             this.txtImagen.Size = new System.Drawing.Size(307, 20);
-            this.txtImagen.TabIndex = 16;
+            this.txtImagen.TabIndex = 7;
             // 
             // btnImagenExtra
             // 
             this.btnImagenExtra.Location = new System.Drawing.Point(147, 335);
             this.btnImagenExtra.Name = "btnImagenExtra";
             this.btnImagenExtra.Size = new System.Drawing.Size(159, 23);
-            this.btnImagenExtra.TabIndex = 17;
+            this.btnImagenExtra.TabIndex = 8;
             this.btnImagenExtra.Text = "Agregar Imagen";
             this.btnImagenExtra.UseVisualStyleBackColor = true;
             this.btnImagenExtra.Click += new System.EventHandler(this.btnImagenExtra_Click);
@@ -238,6 +238,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(820, 650);
+            this.MinimumSize = new System.Drawing.Size(820, 650);
             this.Name = "AgregarArticulo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AgregarArticulo";

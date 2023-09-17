@@ -33,6 +33,7 @@
             this.btnCambiarImagen = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminarFisico = new System.Windows.Forms.Button();
+            this.btnVolver = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbImagen)).BeginInit();
             this.SuspendLayout();
@@ -42,6 +43,7 @@
             this.dgvArticulos.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvArticulos.Location = new System.Drawing.Point(29, 31);
+            this.dgvArticulos.MultiSelect = false;
             this.dgvArticulos.Name = "dgvArticulos";
             this.dgvArticulos.Size = new System.Drawing.Size(743, 150);
             this.dgvArticulos.TabIndex = 0;
@@ -93,12 +95,25 @@
             this.btnEliminarFisico.UseVisualStyleBackColor = false;
             this.btnEliminarFisico.Click += new System.EventHandler(this.btnEliminarFisico_Click);
             // 
+            // btnVolver
+            // 
+            this.btnVolver.BackColor = System.Drawing.Color.Silver;
+            this.btnVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVolver.Location = new System.Drawing.Point(706, 554);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(86, 45);
+            this.btnVolver.TabIndex = 8;
+            this.btnVolver.Text = "Volver";
+            this.btnVolver.UseVisualStyleBackColor = false;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            // 
             // ListadoDeArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Peru;
             this.ClientSize = new System.Drawing.Size(804, 611);
+            this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnEliminarFisico);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnCambiarImagen);
@@ -106,6 +121,9 @@
             this.Controls.Add(this.dgvArticulos);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Black;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(820, 650);
+            this.MinimumSize = new System.Drawing.Size(820, 650);
             this.Name = "ListadoDeArticulo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Listado de articulos";
@@ -122,6 +140,7 @@
         private System.Windows.Forms.Button btnCambiarImagen;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnEliminarFisico;
+        private System.Windows.Forms.Button btnVolver;
     }
 }
 

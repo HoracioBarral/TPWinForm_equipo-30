@@ -49,12 +49,14 @@
             // 
             // btnVolver
             // 
+            this.btnVolver.BackColor = System.Drawing.Color.Silver;
+            this.btnVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVolver.Location = new System.Drawing.Point(706, 404);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(86, 45);
-            this.btnVolver.TabIndex = 1;
+            this.btnVolver.TabIndex = 5;
             this.btnVolver.Text = "Volver";
-            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.UseVisualStyleBackColor = false;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // btnListaArticulo
@@ -65,7 +67,7 @@
             this.btnListaArticulo.Location = new System.Drawing.Point(316, 119);
             this.btnListaArticulo.Name = "btnListaArticulo";
             this.btnListaArticulo.Size = new System.Drawing.Size(130, 43);
-            this.btnListaArticulo.TabIndex = 2;
+            this.btnListaArticulo.TabIndex = 1;
             this.btnListaArticulo.Text = "Listado de articulos";
             this.btnListaArticulo.UseVisualStyleBackColor = false;
             this.btnListaArticulo.Click += new System.EventHandler(this.btnListaArticulo_Click);
@@ -78,7 +80,7 @@
             this.btnBusquedaArticulo.Location = new System.Drawing.Point(316, 180);
             this.btnBusquedaArticulo.Name = "btnBusquedaArticulo";
             this.btnBusquedaArticulo.Size = new System.Drawing.Size(130, 40);
-            this.btnBusquedaArticulo.TabIndex = 3;
+            this.btnBusquedaArticulo.TabIndex = 2;
             this.btnBusquedaArticulo.Text = "Busqueda de articulos";
             this.btnBusquedaArticulo.UseVisualStyleBackColor = false;
             // 
@@ -90,7 +92,7 @@
             this.btnAgregarArticulo.Location = new System.Drawing.Point(316, 248);
             this.btnAgregarArticulo.Name = "btnAgregarArticulo";
             this.btnAgregarArticulo.Size = new System.Drawing.Size(130, 36);
-            this.btnAgregarArticulo.TabIndex = 4;
+            this.btnAgregarArticulo.TabIndex = 3;
             this.btnAgregarArticulo.Text = "Agregar articulo";
             this.btnAgregarArticulo.UseVisualStyleBackColor = false;
             this.btnAgregarArticulo.Click += new System.EventHandler(this.btnAgregarArticulo_Click);
@@ -103,7 +105,7 @@
             this.btnDetalleArticulo.Location = new System.Drawing.Point(316, 307);
             this.btnDetalleArticulo.Name = "btnDetalleArticulo";
             this.btnDetalleArticulo.Size = new System.Drawing.Size(130, 45);
-            this.btnDetalleArticulo.TabIndex = 7;
+            this.btnDetalleArticulo.TabIndex = 4;
             this.btnDetalleArticulo.Text = "Detalle de articulo";
             this.btnDetalleArticulo.UseVisualStyleBackColor = false;
             // 
@@ -120,6 +122,9 @@
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.saludo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(820, 520);
+            this.MinimumSize = new System.Drawing.Size(820, 520);
             this.Name = "Administracion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Administracion";
