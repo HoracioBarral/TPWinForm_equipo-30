@@ -189,17 +189,20 @@ namespace WindowsFormsApp
             ArticuloNegocio negocio = new ArticuloNegocio();
             try
             {
-                articulo.Codigo = txtCodigo.Text;
-                articulo.Nombre = txtNombre.Text;
-                articulo.Descripcion = txtDescripcion.Text;
-                articulo.Precio = Decimal.Parse(txtPrecio.Text);
-                articulo.NombreMarca = (Marca)cmbMarcas.SelectedItem;
-                articulo.TipoCategoria = (Categoria)cmbCategorias.SelectedItem;
-                if (ValidarDatos() == true)
+                
+                if (!ValidarDatos())
+                {
+                    articulo.Codigo = txtCodigo.Text;
+                    articulo.Nombre = txtNombre.Text;
+                    articulo.Descripcion = txtDescripcion.Text;
+                    articulo.Precio = Decimal.Parse(txtPrecio.Text);
+                    articulo.NombreMarca = (Marca)cmbMarcas.SelectedItem;
+                    articulo.TipoCategoria = (Categoria)cmbCategorias.SelectedItem;
                     negocio.modificarArticulo(articulo);
+                }
                 else
                 {
-                    MessageBox.Show("Faltan datos por ingresar");
+                    MessageBox.Show("Faltan datos por ingresar o estan mal cargados");
                     return;
                 }
                 MessageBox.Show("Articulo Modificado");
@@ -218,17 +221,37 @@ namespace WindowsFormsApp
         {
             if(cmbCategorias.SelectedIndex <0)
             
-                return false;
+                return true;
             
             
             if(cmbMarcas.SelectedIndex < 0)
             
-                return false;
+                return true;
 
             if (string.IsNullOrEmpty(txtCodigo.Text) || string.IsNullOrEmpty(txtNombre.Text))
-                return false;
+                return true;
             if (string.IsNullOrEmpty(txtDescripcion.Text) || string.IsNullOrEmpty(txtDescripcion.Text))
-                return false;
+                return true;
+            if (string.IsNullOrEmpty(txtPrecio.Text))
+            {
+                return true;
+            }
+            if (!VerificarNumeros())
+            {
+                return true;
+            }
+            
+            return false;  
+        }
+
+
+        private bool VerificarNumeros()
+        {
+            foreach (char c in txtPrecio.Text)
+            {
+                if (!(char.IsNumber(c)))
+                    return false;
+            }
             return true;
         }
     }

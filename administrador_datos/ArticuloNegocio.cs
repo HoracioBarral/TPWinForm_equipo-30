@@ -238,7 +238,7 @@ namespace administrador_datos
                 datos.SetParametros("@Descripcion",artModificado.Descripcion);
                 datos.SetParametros("@idMarca", artModificado.NombreMarca.Id);
                 datos.SetParametros("@idCategoria", artModificado.TipoCategoria.Id);
-                datos.SetParametros("@precio", artModificado.TipoCategoria.Id);
+                datos.SetParametros("@precio", artModificado.Precio);
                 datos.SetParametros("@id", artModificado.Id);
 
                 datos.EjecutarAccion();
