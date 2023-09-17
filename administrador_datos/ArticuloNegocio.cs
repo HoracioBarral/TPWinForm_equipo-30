@@ -15,7 +15,7 @@ namespace administrador_datos
         {
             List<Articulo> listaArt = new List<Articulo>();
             AccesoDatos datos = new AccesoDatos();
-            datos.SetConsulta("select a.id,a.Codigo,a.Nombre,a.Descripcion,a.Precio,c.Descripcion Tipo,m.Descripcion Marca from articulos a left join categorias c on a.IdCategoria=c.Id inner join marcas m on a.IdMarca=m.Id");
+            datos.SetConsulta("select a.id,a.Codigo,a.Nombre,a.Descripcion,a.Precio,c.Descripcion Tipo,m.Descripcion Marca,m.Id idMarca, c.Id idCategoria from articulos a left join categorias c on a.IdCategoria=c.Id inner join marcas m on a.IdMarca=m.Id");
             try
             {
                 datos.Consulta_A_DB();
@@ -31,18 +31,22 @@ namespace administrador_datos
                         art.Descripcion = (string)datos.Lector["Descripcion"];
                     if (!(datos.Lector["Precio"] is DBNull))
                         art.Precio = (decimal)datos.Lector["Precio"];
-                    
                     if (!(datos.Lector["Tipo"] is DBNull))
                     {
                         art.TipoCategoria = new Categoria();
                         art.TipoCategoria.Descripcion = (string)datos.Lector["Tipo"];
+                        if (!(datos.Lector["idCategoria"] is DBNull))
+                            art.TipoCategoria.Id = (int)datos.Lector["idCategoria"];
                     }
                     if (!(datos.Lector["Marca"] is DBNull))
                     {
                         art.NombreMarca = new Marca();
                         art.NombreMarca.Descripcion = (string)datos.Lector["Marca"];
+                        if (!(datos.Lector["idMarca"] is DBNull))
+                            art.NombreMarca.Id = (int)datos.Lector["idMarca"];
                     }
-           
+                    
+
                     List<Imagen> imagenes;
                     imagenes = obtenerImagenes(art.Id);
                     if (imagenes.Count > 0)

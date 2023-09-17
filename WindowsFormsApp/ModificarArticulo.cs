@@ -42,12 +42,28 @@ namespace WindowsFormsApp
                 txtPrecio.Text = articulo.Precio.ToString();
                 txtDescripcion.Text = articulo.Descripcion;
                 cmbMarcas.DataSource = listadoMarcas.Listar();
+                cmbMarcas.ValueMember = "id";
+                cmbMarcas.DisplayMember = "Descripcion";
+                if (articulo.NombreMarca != null)
+                    cmbMarcas.SelectedValue = articulo.NombreMarca.Id;
+                else
+                    cmbMarcas.SelectedValue = "";
                 cmbCategorias.DataSource = listadoCategorias.Listar();
+                cmbCategorias.ValueMember = "id";
+                cmbCategorias.DisplayMember = "Descripcion";
+                if (articulo.TipoCategoria != null)
+                    cmbCategorias.SelectedValue = articulo.TipoCategoria.Id;
+                else
+                    cmbCategorias.SelectedValue = "";
                 if (articulo.UrlImagen != null)
                 {
                     advertencia.Text = string.Empty;
                     imagenes = articulo.UrlImagen;
                     CargarImagenes();
+                }
+                else
+                {
+                    btnEliminarImagen.Enabled = false;
                 }
             }
             catch (Exception ex)
@@ -61,6 +77,7 @@ namespace WindowsFormsApp
 
         private void CargarImagenes()
         {
+            
             if (imagenes.Count > 1)
             {
                 btnSiguiente.Enabled = true;
@@ -71,7 +88,7 @@ namespace WindowsFormsApp
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                ptbImagen.Load("https://efectocolibri.com/wp-content/uploads/2021/01/placeholder.png");
             }
             finally
             {
@@ -90,7 +107,6 @@ namespace WindowsFormsApp
                         indice++;
                     if (indice > imagenes.Count-1)
                         {
-                            btnSiguiente.Enabled = false;
                             indice = imagenes.Count - 1;
                         }
                    ptbImagen.Load(imagenes[indice].Url);
@@ -141,5 +157,11 @@ namespace WindowsFormsApp
         {
             CargarImagenes(false);
         }
+
+        private void btnEliminarImagen_Click(object sender, EventArgs e)
+        {
+            
+        }
+
     }
 }
