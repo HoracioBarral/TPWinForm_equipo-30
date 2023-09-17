@@ -281,7 +281,7 @@ namespace administrador_datos
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.SetConsulta("delete from imagenes where id=@id and ImagenUrl=@url");
+                datos.SetConsulta("delete from imagenes where idArticulo=@id and ImagenUrl=@url");
                 datos.SetParametros("@id", id);
                 datos.SetParametros("@url", url);
                 datos.EjecutarAccion();
