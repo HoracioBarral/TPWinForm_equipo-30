@@ -30,8 +30,6 @@ namespace WindowsFormsApp
                 articulos = art.listar();
                 dgvArticulos.DataSource = articulos;
                 dgvArticulos.Columns["Id"].Visible = false;
-                //dgvArticulos.Columns["idMarca"].Visible = false;
-                //dgvArticulos.Columns["idCategoria"].Visible = false;
             }
             catch (Exception ex)
             {
