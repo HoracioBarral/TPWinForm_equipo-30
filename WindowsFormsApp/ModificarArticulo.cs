@@ -100,11 +100,17 @@ namespace WindowsFormsApp
             
                 try
                 {
-                    if (i == false)
-                        indice--;
-                    else
-                        if(contadorBtn>0)
-                            indice++;
+                if (i == false)
+                    indice--;
+                else
+                    if (contadorBtn == 1)
+                {
+                    indice = 1;
+                }
+                else
+                {
+                    indice++;
+                }
                    ptbImagen.Load(imagenes[indice].Url);
                 }
                 catch (Exception ex)
@@ -184,7 +190,7 @@ namespace WindowsFormsApp
                 ArticuloNegocio negocio = new ArticuloNegocio();
                 try
                 {
-                    negocio.EliminarImagenes(articulo.UrlImagen[indice].Url, articulo.Id);
+                    negocio.EliminarImagenes(imagenes[indice].Url, articulo.Id);
                 }
                 catch (Exception ex)
                 {
