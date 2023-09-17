@@ -7,8 +7,8 @@
     <ProjectGuid>{E62C167B-AD5C-4A18-9692-B0CCCAD199C8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>moldes_clases</RootNamespace>
-    <AssemblyName>moldes_clases</AssemblyName>
+    <RootNamespace>dominio</RootNamespace>
+    <AssemblyName>dominio</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

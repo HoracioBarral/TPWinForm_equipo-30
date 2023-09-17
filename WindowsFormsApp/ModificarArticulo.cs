@@ -1,5 +1,5 @@
-﻿using administrador_datos;
-using moldes_clases;
+﻿using negocio;
+using dominio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

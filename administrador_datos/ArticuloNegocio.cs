@@ -5,9 +5,9 @@ using System.Net.Http;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-using moldes_clases;
+using dominio;
 
-namespace administrador_datos
+namespace negocio
 {
     public class ArticuloNegocio
     {

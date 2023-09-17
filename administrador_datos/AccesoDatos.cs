@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
-using moldes_clases;
+using dominio;
 using System.Net;
 
-namespace administrador_datos
+namespace negocio
 {
     public class AccesoDatos
     {
