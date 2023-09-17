@@ -254,6 +254,26 @@ namespace administrador_datos
             }
         }
 
+        public void InsertarImagenes(Imagen nueva, int idArt)
+        {
 
+            AccesoDatos datos = new AccesoDatos();
+            datos.SetConsulta("insert into imagenes (idArticulo,ImagenUrl) values(@idarticulo,@UrlImagen)");
+            datos.SetParametros("@idarticulo", idArt);
+            datos.SetParametros("@UrlImagen", nueva.Url);
+            try
+            {
+                datos.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+        }
     }
 }

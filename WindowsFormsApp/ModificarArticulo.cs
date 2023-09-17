@@ -147,7 +147,31 @@ namespace WindowsFormsApp
 
         private void btnAgregarImagen_Click(object sender, EventArgs e)
         {
+            Imagen nueva = new Imagen();
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            string agregada;
+            agregada = txtImagen.Text;
+            if(agregada.Length == 0)
+            {
+                MessageBox.Show("Ingrese una URL antes de seleccionar el boton de agregar Imagen");
+            }
+            else
+            {
+                try
+                {
+                    nueva.Url = agregada;
+                    nueva.IdArticulo = articulo.Id;
+                    imagenes.Add(nueva);
+                    negocio.InsertarImagenes(nueva,articulo.Id);
+                    txtImagen.Text = string.Empty;
+                    MessageBox.Show("Imagen Agregada");
+                }
+                catch (Exception ex)
+                {
 
+                    MessageBox.Show(ex.ToString());
+                }
+            }
         }
 
         private void btnAnterior_Click(object sender, EventArgs e)
@@ -172,6 +196,7 @@ namespace WindowsFormsApp
                 articulo.NombreMarca = (Marca)cmbMarcas.SelectedItem;
                 articulo.TipoCategoria = (Categoria)cmbCategorias.SelectedItem;
                 negocio.modificarArticulo(articulo);
+                
                 MessageBox.Show("Articulo Modificado");
                 Close();
             }
