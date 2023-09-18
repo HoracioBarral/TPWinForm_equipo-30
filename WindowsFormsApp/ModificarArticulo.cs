@@ -16,7 +16,7 @@ namespace WindowsFormsApp
     {
         private Articulo articulo;
         private int indice;
-        private List<Imagen> imagenes;
+        private List<Imagen> imagenes = new List<Imagen>();
         private int contadorBtn;
         public ModificarArticulo(Articulo articulo)
         {
@@ -265,7 +265,7 @@ namespace WindowsFormsApp
         {
             foreach (char c in txtPrecio.Text)
             {
-                if (!(char.IsNumber(c)))
+                if (!(char.IsNumber(c)) && !(char.IsPunctuation(c)))
                     return false;
             }
             return true;

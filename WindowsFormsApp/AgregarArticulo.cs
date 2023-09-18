@@ -86,7 +86,7 @@ namespace WindowsFormsApp
             try
             {
                 imagen.Url = txtImagen.Text;
-                if(txtImagen.Text.Length != 0)
+                if(!(string.IsNullOrEmpty(txtImagen.Text)))
                 {
                     imagenes.Add(imagen);
                     txtImagen.Text = string.Empty;
@@ -94,7 +94,7 @@ namespace WindowsFormsApp
                 }
                 else
                 {
-                    MessageBox.Show("Por favor complete con una imagen y luego presione el boton");
+                    MessageBox.Show("Por favor complete con una URL y luego presione el boton");
                 }
             }
             catch (Exception ex)
