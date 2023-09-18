@@ -109,10 +109,16 @@ namespace WindowsFormsApp
             Articulo seleccionado;
             try
             {
+                if (dgvArticulos.CurrentRow != null)
+                    seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                else
+                {
+                    MessageBox.Show("No ha seleccionado ningun articulo");
+                    return;
+                }
                 DialogResult respuesta = MessageBox.Show("Usted quiere eliminar este articulo?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (respuesta == DialogResult.Yes)
                 {
-                    seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
                     negocio.eliminarArticulo(seleccionado.Id);
                     ListarArticulos();
                 }
@@ -122,8 +128,6 @@ namespace WindowsFormsApp
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
-
-                throw;
             }
         }
 
