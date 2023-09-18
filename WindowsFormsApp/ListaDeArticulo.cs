@@ -135,16 +135,10 @@ namespace WindowsFormsApp
         {
             this.Close();
 
-        }
+        }      
 
-       /* private void ocultarColumnas()
-        {
-            dgvArticulos.Columns["UrlImage"].Visible = false;
-            dgvArticulos.Columns["Id"].Visible = false;
-        }
-       */
-
-        private void btnBuscar_Click(object sender, EventArgs e)
+       
+  private void btnBuscar_Click(object sender, EventArgs e)
         {
             List<Articulo> listaFiltrada;
 
