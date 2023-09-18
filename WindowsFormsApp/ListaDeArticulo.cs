@@ -167,12 +167,18 @@ namespace WindowsFormsApp
             }
             else
             {
-                listaFiltrada = articulos;
+                MessageBox.Show("El campo texto esta vacio");
+                return;
             }
 
-
+            if (listaFiltrada.Count == 0)
+            {
+                MessageBox.Show("No hay resultados para la busqueda seleccionada");
+                return;
+            }
             dgvArticulos.DataSource = null;
             dgvArticulos.DataSource = listaFiltrada;
+            
         }
 
       
