@@ -256,6 +256,61 @@ namespace negocio
             }
         }
 
+        public List<Articulo> detalleArticulo(int id)
+        {
+            List<Articulo> listaArt = new List<Articulo>();
+            AccesoDatos datos = new AccesoDatos();
+            datos.SetConsulta("select a.id,a.Codigo,a.Nombre,a.Descripcion,a.Precio,c.Descripcion Tipo,m.Descripcion Marca,m.Id idMarca, c.Id idCategoria from articulos a left join categorias c on a.IdCategoria=c.Id inner join marcas m on a.IdMarca=m.Id");
+            try
+            {
+                datos.Consulta_A_DB();
+                while (datos.Lector.Read())
+                {
+                    int articulo = (int)datos.Lector["articulo"];
+
+                    if (articulo == id)
+                    {
+                        Articulo art = new Articulo();
+                        art.Id = (int)datos.Lector["id"];
+                        art.Nombre = (string)datos.Lector["Nombre"];
+                        art.Codigo = (string)datos.Lector["Codigo"];
+                        art.Descripcion = (string)datos.Lector["Descripcion"];
+                        art.Precio = (decimal)datos.Lector["Precio"];
+
+                        if (!(datos.Lector["Tipo"] is DBNull))
+                        {
+                            art.TipoCategoria = new Categoria();
+                            art.TipoCategoria.Descripcion = (string)datos.Lector["Tipo"];
+                            if (!(datos.Lector["idCategoria"] is DBNull))
+                                art.TipoCategoria.Id = (int)datos.Lector["idCategoria"];
+                        }
+                        if (!(datos.Lector["Marca"] is DBNull))
+                        {
+                            art.NombreMarca = new Marca();
+                            art.NombreMarca.Descripcion = (string)datos.Lector["Marca"];
+                            if (!(datos.Lector["idMarca"] is DBNull))
+                                art.NombreMarca.Id = (int)datos.Lector["idMarca"];
+                        }
+
+                        List<Imagen> imagenes;
+                        imagenes = obtenerImagenes(art.Id);
+                        if (imagenes.Count > 0)
+                            art.UrlImagen = imagenes;
+                        listaArt.Add(art);
+                    }
+                }
+                return listaArt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+        }
+
         public void InsertarImagenes(Imagen nueva, int idArt)
         {
 
