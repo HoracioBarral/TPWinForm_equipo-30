@@ -1,4 +1,5 @@
 ﻿using dominio;
+using negocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +17,9 @@ namespace WindowsFormsApp
         private Articulo articulo;
         private int indice;
         private List<Articulo> art;
-        private List<Imagen> imagenes;
+        private List<Imagen> imagenes = new List<Imagen>();   
+        private int contadorBtn;
+
         public DetalleArticulo(Articulo articulo)
         {
             InitializeComponent();
@@ -48,21 +51,110 @@ namespace WindowsFormsApp
                 {
                     lblCategoriaDA.Text = "Desconocida";
                 }
+                //if (articulo.UrlImagen != null && articulo.UrlImagen.Count > 0)
+                //{
+                //    ptbImagenDA.Load(articulo.UrlImagen[0].Url);
+                //}
+                //else
+                //{
+                //    ptbImagenDA.Image = null;
+                //}
+                if (articulo.UrlImagen != null)
+                {
+                    
+                    imagenes = articulo.UrlImagen;
+                    CargarImagenes();
+                }
 
-                if (articulo.UrlImagen != null && articulo.UrlImagen.Count > 0)
-                {
-                    ptbImagenDA.Load(articulo.UrlImagen[0].Url);
-                }
-                else
-                {
-                    ptbImagenDA.Image = null;
-                }
             }
         }
 
         private void btnVolverDA_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+
+
+        private void CargarImagenes()
+        {
+
+            indice = 0;
+            contadorBtn = 0;
+            if (imagenes.Count > 1)
+                btnSiguienteDA.Enabled = true;
+            if (imagenes.Count == 1)
+            {
+                btnAnteriorDA.Enabled = false;
+                btnSiguienteDA.Enabled = false;
+            }
+
+            try
+            {
+                if (imagenes.Count > 0)
+                    ptbImagenDA.Load(imagenes[indice].Url);
+            }
+            catch (Exception)
+            {
+                ptbImagenDA.Load("https://efectocolibri.com/wp-content/uploads/2021/01/placeholder.png");
+            }
+
+        }
+
+        private void CargarImagenes(bool i)
+        {
+
+            try
+            {
+                if (i == false)
+                    indice--;
+                else
+                    if (contadorBtn == 1)
+                {
+                    indice = 1;
+                }
+                else
+                {
+                    indice++;
+                }
+                ptbImagenDA.Load(imagenes[indice].Url);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                if (indice >= imagenes.Count - 1)
+
+                    btnSiguienteDA.Enabled = false;
+
+                else
+                    btnSiguienteDA.Enabled = true;
+
+
+                if (indice > 0)
+
+                    btnAnteriorDA.Enabled = true;
+
+                else
+
+                    btnAnteriorDA.Enabled = false;
+
+
+            }
+        }
+
+        private void btnSiguienteDA_Click(object sender, EventArgs e)
+        {
+            contadorBtn++;
+            CargarImagenes(true);
+        }
+
+        private void btnAnteriorDA_Click(object sender, EventArgs e)
+        {
+            CargarImagenes(false);
         }
     }
 }

@@ -42,6 +42,8 @@
             this.lblNombreDA = new System.Windows.Forms.Label();
             this.ptbImagenDA = new System.Windows.Forms.PictureBox();
             this.btnVolverDA = new System.Windows.Forms.Button();
+            this.btnAnteriorDA = new System.Windows.Forms.Button();
+            this.btnSiguienteDA = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ptbImagenDA)).BeginInit();
             this.SuspendLayout();
             // 
@@ -186,12 +188,34 @@
             this.btnVolverDA.UseVisualStyleBackColor = false;
             this.btnVolverDA.Click += new System.EventHandler(this.btnVolverDA_Click);
             // 
+            // btnAnteriorDA
+            // 
+            this.btnAnteriorDA.Location = new System.Drawing.Point(480, 363);
+            this.btnAnteriorDA.Name = "btnAnteriorDA";
+            this.btnAnteriorDA.Size = new System.Drawing.Size(88, 23);
+            this.btnAnteriorDA.TabIndex = 35;
+            this.btnAnteriorDA.Text = "Anterior";
+            this.btnAnteriorDA.UseVisualStyleBackColor = true;
+            this.btnAnteriorDA.Click += new System.EventHandler(this.btnAnteriorDA_Click);
+            // 
+            // btnSiguienteDA
+            // 
+            this.btnSiguienteDA.Location = new System.Drawing.Point(665, 363);
+            this.btnSiguienteDA.Name = "btnSiguienteDA";
+            this.btnSiguienteDA.Size = new System.Drawing.Size(88, 23);
+            this.btnSiguienteDA.TabIndex = 36;
+            this.btnSiguienteDA.Text = "Siguiente";
+            this.btnSiguienteDA.UseVisualStyleBackColor = true;
+            this.btnSiguienteDA.Click += new System.EventHandler(this.btnSiguienteDA_Click);
+            // 
             // DetalleArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Peru;
             this.ClientSize = new System.Drawing.Size(804, 581);
+            this.Controls.Add(this.btnSiguienteDA);
+            this.Controls.Add(this.btnAnteriorDA);
             this.Controls.Add(this.btnVolverDA);
             this.Controls.Add(this.ptbImagenDA);
             this.Controls.Add(this.lblNombreDA);
@@ -232,5 +256,7 @@
         private System.Windows.Forms.Label lblPrecioDA;
         private System.Windows.Forms.Label lblCodigoDA;
         private System.Windows.Forms.Button btnVolverDA;
+        private System.Windows.Forms.Button btnAnteriorDA;
+        private System.Windows.Forms.Button btnSiguienteDA;
     }
 }
