@@ -130,5 +130,38 @@ namespace WindowsFormsApp
         {
             ListarArticulos();
         }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
+        }
+
+       /* private void ocultarColumnas()
+        {
+            dgvArticulos.Columns["UrlImage"].Visible = false;
+            dgvArticulos.Columns["Id"].Visible = false;
+        }
+       */
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            List<Articulo> listaFiltrada;
+
+            string filtro = txtFiltro.Text;
+
+            if (filtro != "")
+            {
+                listaFiltrada = articulos.FindAll(x => x.Nombre.ToUpper().Contains( filtro.ToUpper()) || x.Codigo.ToUpper().Contains(filtro.ToUpper()));
+            }
+            else
+            {
+                listaFiltrada = articulos;
+            }
+
+
+            dgvArticulos.DataSource = null;
+            dgvArticulos.DataSource = listaFiltrada;
+        }
     }
 }

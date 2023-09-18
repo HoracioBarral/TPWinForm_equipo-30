@@ -45,5 +45,7 @@ namespace WindowsFormsApp
             using (ListadoDeArticulo ventanaListado = new ListadoDeArticulo())
                 ventanaListado.ShowDialog();
         }
+
+        
     }
 }

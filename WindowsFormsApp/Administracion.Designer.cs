@@ -31,7 +31,6 @@
             this.saludo = new System.Windows.Forms.Label();
             this.btnVolver = new System.Windows.Forms.Button();
             this.btnListaArticulo = new System.Windows.Forms.Button();
-            this.btnBusquedaArticulo = new System.Windows.Forms.Button();
             this.btnAgregarArticulo = new System.Windows.Forms.Button();
             this.btnDetalleArticulo = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -51,7 +50,7 @@
             // 
             this.btnVolver.BackColor = System.Drawing.Color.Silver;
             this.btnVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVolver.Location = new System.Drawing.Point(706, 404);
+            this.btnVolver.Location = new System.Drawing.Point(589, 285);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(86, 45);
             this.btnVolver.TabIndex = 5;
@@ -64,7 +63,7 @@
             this.btnListaArticulo.BackColor = System.Drawing.Color.Silver;
             this.btnListaArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnListaArticulo.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnListaArticulo.Location = new System.Drawing.Point(316, 119);
+            this.btnListaArticulo.Location = new System.Drawing.Point(296, 107);
             this.btnListaArticulo.Name = "btnListaArticulo";
             this.btnListaArticulo.Size = new System.Drawing.Size(130, 43);
             this.btnListaArticulo.TabIndex = 1;
@@ -72,26 +71,14 @@
             this.btnListaArticulo.UseVisualStyleBackColor = false;
             this.btnListaArticulo.Click += new System.EventHandler(this.btnListaArticulo_Click);
             // 
-            // btnBusquedaArticulo
-            // 
-            this.btnBusquedaArticulo.BackColor = System.Drawing.Color.Silver;
-            this.btnBusquedaArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBusquedaArticulo.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnBusquedaArticulo.Location = new System.Drawing.Point(316, 180);
-            this.btnBusquedaArticulo.Name = "btnBusquedaArticulo";
-            this.btnBusquedaArticulo.Size = new System.Drawing.Size(130, 40);
-            this.btnBusquedaArticulo.TabIndex = 2;
-            this.btnBusquedaArticulo.Text = "Busqueda de articulos";
-            this.btnBusquedaArticulo.UseVisualStyleBackColor = false;
-            // 
             // btnAgregarArticulo
             // 
             this.btnAgregarArticulo.BackColor = System.Drawing.Color.Silver;
             this.btnAgregarArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregarArticulo.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnAgregarArticulo.Location = new System.Drawing.Point(316, 248);
+            this.btnAgregarArticulo.Location = new System.Drawing.Point(296, 167);
             this.btnAgregarArticulo.Name = "btnAgregarArticulo";
-            this.btnAgregarArticulo.Size = new System.Drawing.Size(130, 36);
+            this.btnAgregarArticulo.Size = new System.Drawing.Size(130, 44);
             this.btnAgregarArticulo.TabIndex = 3;
             this.btnAgregarArticulo.Text = "Agregar articulo";
             this.btnAgregarArticulo.UseVisualStyleBackColor = false;
@@ -102,7 +89,7 @@
             this.btnDetalleArticulo.BackColor = System.Drawing.Color.Silver;
             this.btnDetalleArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDetalleArticulo.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnDetalleArticulo.Location = new System.Drawing.Point(316, 307);
+            this.btnDetalleArticulo.Location = new System.Drawing.Point(296, 233);
             this.btnDetalleArticulo.Name = "btnDetalleArticulo";
             this.btnDetalleArticulo.Size = new System.Drawing.Size(130, 45);
             this.btnDetalleArticulo.TabIndex = 4;
@@ -114,17 +101,16 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Peru;
-            this.ClientSize = new System.Drawing.Size(804, 481);
+            this.ClientSize = new System.Drawing.Size(714, 361);
             this.Controls.Add(this.btnDetalleArticulo);
             this.Controls.Add(this.btnAgregarArticulo);
-            this.Controls.Add(this.btnBusquedaArticulo);
             this.Controls.Add(this.btnListaArticulo);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.saludo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(820, 520);
-            this.MinimumSize = new System.Drawing.Size(820, 520);
+            this.MaximumSize = new System.Drawing.Size(730, 400);
+            this.MinimumSize = new System.Drawing.Size(730, 400);
             this.Name = "Administracion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Administracion";
@@ -139,7 +125,6 @@
         private System.Windows.Forms.Label saludo;
         private System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.Button btnListaArticulo;
-        private System.Windows.Forms.Button btnBusquedaArticulo;
         private System.Windows.Forms.Button btnAgregarArticulo;
         private System.Windows.Forms.Button btnDetalleArticulo;
     }

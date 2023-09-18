@@ -45,7 +45,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(279, 35);
+            this.label1.Location = new System.Drawing.Point(246, 31);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(274, 31);
             this.label1.TabIndex = 0;
@@ -55,7 +55,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::WindowsFormsApp.Properties.Resources.png_transparent_finance_scalable_graphics_accounting_icon_book_text_comic_book_booking1;
-            this.pictureBox1.Location = new System.Drawing.Point(203, 35);
+            this.pictureBox1.Location = new System.Drawing.Point(170, 31);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(79, 31);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -68,7 +68,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(146, 236);
+            this.label2.Location = new System.Drawing.Point(113, 148);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(119, 24);
             this.label2.TabIndex = 2;
@@ -76,7 +76,7 @@
             // 
             // Nombre
             // 
-            this.Nombre.Location = new System.Drawing.Point(297, 236);
+            this.Nombre.Location = new System.Drawing.Point(264, 148);
             this.Nombre.Name = "Nombre";
             this.Nombre.Size = new System.Drawing.Size(256, 20);
             this.Nombre.TabIndex = 1;
@@ -87,7 +87,7 @@
             // 
             this.btningresarNombre.BackColor = System.Drawing.Color.Silver;
             this.btningresarNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btningresarNombre.Location = new System.Drawing.Point(363, 287);
+            this.btningresarNombre.Location = new System.Drawing.Point(330, 199);
             this.btningresarNombre.Name = "btningresarNombre";
             this.btningresarNombre.Size = new System.Drawing.Size(114, 45);
             this.btningresarNombre.TabIndex = 2;
@@ -99,7 +99,7 @@
             // 
             this.btnSalir.BackColor = System.Drawing.Color.Silver;
             this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.Location = new System.Drawing.Point(708, 410);
+            this.btnSalir.Location = new System.Drawing.Point(627, 301);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 48);
             this.btnSalir.TabIndex = 3;
@@ -116,7 +116,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Peru;
-            this.ClientSize = new System.Drawing.Size(804, 481);
+            this.ClientSize = new System.Drawing.Size(714, 361);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btningresarNombre);
             this.Controls.Add(this.Nombre);
@@ -124,8 +124,8 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(820, 520);
-            this.MinimumSize = new System.Drawing.Size(820, 520);
+            this.MaximumSize = new System.Drawing.Size(730, 400);
+            this.MinimumSize = new System.Drawing.Size(730, 400);
             this.Name = "MenuPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MenuPrincipal";
