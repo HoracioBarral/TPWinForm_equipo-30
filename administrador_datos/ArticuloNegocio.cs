@@ -69,7 +69,7 @@ namespace negocio
 
         }
 
-        private List<Imagen> obtenerImagenes(int id)
+        public List<Imagen> obtenerImagenes(int id)
         {
             List<Imagen> listadoImagenes = new List<Imagen>();
             AccesoDatos datos = new AccesoDatos();
@@ -311,13 +311,13 @@ namespace negocio
             }
         }
 
-        public void InsertarImagenes(Imagen nueva, int idArt)
+        public void InsertarImagenes(string url, int idArt)
         {
 
             AccesoDatos datos = new AccesoDatos();
             datos.SetConsulta("insert into imagenes (idArticulo,ImagenUrl) values(@idarticulo,@UrlImagen)");
             datos.SetParametros("@idarticulo", idArt);
-            datos.SetParametros("@UrlImagen", nueva.Url);
+            datos.SetParametros("@UrlImagen", url);
             try
             {
                 datos.EjecutarAccion();

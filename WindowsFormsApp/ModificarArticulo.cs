@@ -31,18 +31,16 @@ namespace WindowsFormsApp
 
         private void ModificarArticulo_Load(object sender, EventArgs e)
         {
-            indice = 0;
-            contadorBtn = 0;
             btnAnterior.Enabled = false;
             btnSiguiente.Enabled = false;
             MarcaNegocio listadoMarcas = new MarcaNegocio();
             CategoriaNegocio listadoCategorias = new CategoriaNegocio();
             try
             {
-                txtNombre.Text = articulo.Nombre;
-                txtCodigo.Text = articulo.Codigo;
-                txtPrecio.Text = articulo.Precio.ToString();
-                txtDescripcion.Text = articulo.Descripcion;
+                txtNombre.Text += articulo.Nombre;
+                txtCodigo.Text += articulo.Codigo;
+                txtPrecio.Text += articulo.Precio;
+                txtDescripcion.Text += articulo.Descripcion;
                 cmbMarcas.DataSource = listadoMarcas.Listar();
                 cmbMarcas.ValueMember = "id";
                 cmbMarcas.DisplayMember = "Descripcion";
@@ -59,7 +57,7 @@ namespace WindowsFormsApp
                     cmbCategorias.SelectedValue = "";
                 if (articulo.UrlImagen != null)
                 {
-                    advertencia.Text = string.Empty;
+                    advertencia.Visible = true;
                     imagenes = articulo.UrlImagen;
                     CargarImagenes();
                 }
@@ -79,27 +77,34 @@ namespace WindowsFormsApp
 
         private void CargarImagenes()
         {
-            
+
+            indice = 0;
+            contadorBtn = 0;
             if (imagenes.Count > 1)
-            {
                 btnSiguiente.Enabled = true;
+            if (imagenes.Count == 1)
+            {
+                btnAnterior.Enabled = false;
+                btnSiguiente.Enabled = false;
             }
+
             try
             {
-                ptbImagen.Load(imagenes[0].Url);
+                if (imagenes.Count > 0)
+                    ptbImagen.Load(imagenes[indice].Url);
             }
             catch (Exception)
             {
                 ptbImagen.Load("https://efectocolibri.com/wp-content/uploads/2021/01/placeholder.png");
             }
-         
+
         }   
 
         private void CargarImagenes(bool i)
         {
-            
-                try
-                {
+
+            try
+            {
                 if (i == false)
                     indice--;
                 else
@@ -111,33 +116,33 @@ namespace WindowsFormsApp
                 {
                     indice++;
                 }
-                   ptbImagen.Load(imagenes[indice].Url);
-                }
-                catch (Exception ex)
-                {
+                ptbImagen.Load(imagenes[indice].Url);
+            }
+            catch (Exception ex)
+            {
 
-                    MessageBox.Show(ex.ToString());
-                }
-                finally
-                {
-                    if (indice >= imagenes.Count-1)
-                    
-                       btnSiguiente.Enabled = false;
-                    
-                    else 
-                        btnSiguiente.Enabled = true;
-                     
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                if (indice >= imagenes.Count - 1)
 
-                    if (indice > 0)
-                    
+                    btnSiguiente.Enabled = false;
+
+                else
+                    btnSiguiente.Enabled = true;
+
+
+                if (indice > 0)
+
                     btnAnterior.Enabled = true;
-                    
-                    else
-                    
-                    btnAnterior.Enabled = false;
-                       
 
-                }
+                else
+
+                    btnAnterior.Enabled = false;
+
+
+            }
         }
 
         
@@ -150,11 +155,10 @@ namespace WindowsFormsApp
 
         private void btnAgregarImagen_Click(object sender, EventArgs e)
         {
-            Imagen nueva = new Imagen();
             ArticuloNegocio negocio = new ArticuloNegocio();
             string agregada;
             agregada = txtImagen.Text;
-            if(string.IsNullOrEmpty(agregada))
+            if (string.IsNullOrEmpty(agregada))
             {
                 MessageBox.Show("Ingrese una URL antes de seleccionar el boton de agregar Imagen");
             }
@@ -162,12 +166,14 @@ namespace WindowsFormsApp
             {
                 try
                 {
-                    nueva.Url = agregada;
-                    nueva.IdArticulo = articulo.Id;
-                    imagenes.Add(nueva);
-                    negocio.InsertarImagenes(nueva,articulo.Id);
+                    negocio.InsertarImagenes(agregada, articulo.Id);
                     txtImagen.Text = string.Empty;
                     MessageBox.Show("Imagen Agregada");
+                    imagenes = negocio.obtenerImagenes(articulo.Id);
+                    ptbImagen.Visible = true;
+                    advertencia.Visible = false;
+                    btnEliminarImagen.Enabled = true;
+                    CargarImagenes();
                 }
                 catch (Exception ex)
                 {
@@ -184,13 +190,25 @@ namespace WindowsFormsApp
 
         private void btnEliminarImagen_Click(object sender, EventArgs e)
         {
-            DialogResult respuesta = MessageBox.Show("Usted quiere eliminar esta iamgen?", "Eliminando", MessageBoxButtons.YesNo);
+            DialogResult respuesta = MessageBox.Show("Usted quiere eliminar esta imagen?", "Eliminando", MessageBoxButtons.YesNo);
             if (respuesta == DialogResult.Yes)
             {
                 ArticuloNegocio negocio = new ArticuloNegocio();
                 try
                 {
                     negocio.EliminarImagenes(imagenes[indice].Url, articulo.Id);
+                    imagenes = negocio.obtenerImagenes(articulo.Id);
+                    if (imagenes.Count > 0)
+                    {
+                        CargarImagenes();
+                    }
+                    else
+                    {
+                        ptbImagen.Visible = false;
+                        advertencia.Visible = Enabled;
+                        btnEliminarImagen.Enabled = false;
+                        btnAnterior.Enabled = false;
+                    }
                 }
                 catch (Exception ex)
                 {
