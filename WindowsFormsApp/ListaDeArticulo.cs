@@ -42,35 +42,35 @@ namespace WindowsFormsApp
 
         public void CargarImagen(List<Imagen> imagenes)
         {
-            
-             try
-                 {
-                   ptbImagen.Load(imagenes[indice].Url);
 
-                 }
-             catch (Exception)
-                  {
-                    ptbImagen.Load("https://efectocolibri.com/wp-content/uploads/2021/01/placeholder.png");
-                   }
+            try
+            {
+                ptbImagen.Load(imagenes[indice].Url);
+
+            }
+            catch (Exception)
+            {
+                ptbImagen.Load("https://efectocolibri.com/wp-content/uploads/2021/01/placeholder.png");
+            }
             finally
             {
                 indice++;
-                if(indice >= imagenes.Count)
+                if (indice >= imagenes.Count)
                 {
                     btnCambiarImagen.Enabled = false;
                 }
             }
         }
 
-        
+
 
         private void btnCambiarImagen_Click(object sender, EventArgs e)
         {
-            
+
             if (seleccion.UrlImagen != null)
-             {
+            {
                 CargarImagen(seleccion.UrlImagen);
-             }
+            }
             else
             {
                 btnCambiarImagen.Enabled = false;
@@ -92,7 +92,7 @@ namespace WindowsFormsApp
                 btnCambiarImagen.Enabled = false;
                 ptbImagen.Load("https://efectocolibri.com/wp-content/uploads/2021/01/placeholder.png");
             }
-            
+
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -108,7 +108,7 @@ namespace WindowsFormsApp
             Articulo seleccionado;
             try
             {
-                DialogResult respuesta = MessageBox.Show("Usted quiere eliminar este articulo?", "Eliminando", MessageBoxButtons.YesNo , MessageBoxIcon.Warning);
+                DialogResult respuesta = MessageBox.Show("Usted quiere eliminar este articulo?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (respuesta == DialogResult.Yes)
                 {
                     seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
@@ -118,7 +118,7 @@ namespace WindowsFormsApp
 
 
             }
-            catch (Exception ex )
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
 
@@ -131,11 +131,28 @@ namespace WindowsFormsApp
             ListarArticulos();
         }
 
+        private void btnDetalleArticulo_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio art = new ArticuloNegocio();
+            try
+            {
+                using (DetalleArticulo ventanaDArticulo = new DetalleArticulo(seleccion))
+                    ventanaDArticulo.ShowDialog();
+                ListarArticulos();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
+        }
+
         private void btnVolver_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
 
-        }      
+          
 
        
   private void btnBuscar_Click(object sender, EventArgs e)
@@ -157,5 +174,7 @@ namespace WindowsFormsApp
             dgvArticulos.DataSource = null;
             dgvArticulos.DataSource = listaFiltrada;
         }
+
+      
     }
 }

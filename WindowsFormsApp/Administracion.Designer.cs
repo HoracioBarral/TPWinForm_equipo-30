@@ -32,7 +32,6 @@
             this.btnVolver = new System.Windows.Forms.Button();
             this.btnListaArticulo = new System.Windows.Forms.Button();
             this.btnAgregarArticulo = new System.Windows.Forms.Button();
-            this.btnDetalleArticulo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // saludo
@@ -63,7 +62,7 @@
             this.btnListaArticulo.BackColor = System.Drawing.Color.Silver;
             this.btnListaArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnListaArticulo.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnListaArticulo.Location = new System.Drawing.Point(296, 107);
+            this.btnListaArticulo.Location = new System.Drawing.Point(296, 149);
             this.btnListaArticulo.Name = "btnListaArticulo";
             this.btnListaArticulo.Size = new System.Drawing.Size(130, 43);
             this.btnListaArticulo.TabIndex = 1;
@@ -76,7 +75,7 @@
             this.btnAgregarArticulo.BackColor = System.Drawing.Color.Silver;
             this.btnAgregarArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregarArticulo.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnAgregarArticulo.Location = new System.Drawing.Point(296, 167);
+            this.btnAgregarArticulo.Location = new System.Drawing.Point(296, 218);
             this.btnAgregarArticulo.Name = "btnAgregarArticulo";
             this.btnAgregarArticulo.Size = new System.Drawing.Size(130, 44);
             this.btnAgregarArticulo.TabIndex = 3;
@@ -84,25 +83,12 @@
             this.btnAgregarArticulo.UseVisualStyleBackColor = false;
             this.btnAgregarArticulo.Click += new System.EventHandler(this.btnAgregarArticulo_Click);
             // 
-            // btnDetalleArticulo
-            // 
-            this.btnDetalleArticulo.BackColor = System.Drawing.Color.Silver;
-            this.btnDetalleArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDetalleArticulo.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnDetalleArticulo.Location = new System.Drawing.Point(296, 233);
-            this.btnDetalleArticulo.Name = "btnDetalleArticulo";
-            this.btnDetalleArticulo.Size = new System.Drawing.Size(130, 45);
-            this.btnDetalleArticulo.TabIndex = 4;
-            this.btnDetalleArticulo.Text = "Detalle de articulo";
-            this.btnDetalleArticulo.UseVisualStyleBackColor = false;
-            // 
             // Administracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Peru;
             this.ClientSize = new System.Drawing.Size(714, 361);
-            this.Controls.Add(this.btnDetalleArticulo);
             this.Controls.Add(this.btnAgregarArticulo);
             this.Controls.Add(this.btnListaArticulo);
             this.Controls.Add(this.btnVolver);
@@ -126,6 +112,5 @@
         private System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.Button btnListaArticulo;
         private System.Windows.Forms.Button btnAgregarArticulo;
-        private System.Windows.Forms.Button btnDetalleArticulo;
     }
 }

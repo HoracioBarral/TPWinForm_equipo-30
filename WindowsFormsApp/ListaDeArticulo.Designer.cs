@@ -37,6 +37,7 @@
             this.lblFiltro = new System.Windows.Forms.Label();
             this.txtFiltro = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnDetalleArticulo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbImagen)).BeginInit();
             this.SuspendLayout();
@@ -78,7 +79,7 @@
             // 
             this.btnModificar.BackColor = System.Drawing.Color.Silver;
             this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificar.Location = new System.Drawing.Point(320, 552);
+            this.btnModificar.Location = new System.Drawing.Point(320, 554);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(158, 41);
             this.btnModificar.TabIndex = 4;
@@ -91,7 +92,7 @@
             this.btnEliminarFisico.BackColor = System.Drawing.Color.Silver;
             this.btnEliminarFisico.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminarFisico.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnEliminarFisico.Location = new System.Drawing.Point(157, 552);
+            this.btnEliminarFisico.Location = new System.Drawing.Point(157, 554);
             this.btnEliminarFisico.Name = "btnEliminarFisico";
             this.btnEliminarFisico.Size = new System.Drawing.Size(130, 41);
             this.btnEliminarFisico.TabIndex = 7;
@@ -105,7 +106,7 @@
             this.btnVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVolver.Location = new System.Drawing.Point(706, 554);
             this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(86, 45);
+            this.btnVolver.Size = new System.Drawing.Size(86, 43);
             this.btnVolver.TabIndex = 8;
             this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = false;
@@ -137,6 +138,18 @@
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
+            // btnDetalleArticulo
+            // 
+            this.btnDetalleArticulo.BackColor = System.Drawing.Color.Silver;
+            this.btnDetalleArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDetalleArticulo.Location = new System.Drawing.Point(503, 554);
+            this.btnDetalleArticulo.Name = "btnDetalleArticulo";
+            this.btnDetalleArticulo.Size = new System.Drawing.Size(158, 41);
+            this.btnDetalleArticulo.TabIndex = 9;
+            this.btnDetalleArticulo.Text = "Detalle Articulo";
+            this.btnDetalleArticulo.UseVisualStyleBackColor = false;
+            this.btnDetalleArticulo.Click += new System.EventHandler(this.btnDetalleArticulo_Click);
+            // 
             // ListadoDeArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
@@ -146,6 +159,7 @@
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtFiltro);
             this.Controls.Add(this.lblFiltro);
+            this.Controls.Add(this.btnDetalleArticulo);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnEliminarFisico);
             this.Controls.Add(this.btnModificar);
@@ -179,6 +193,7 @@
         private System.Windows.Forms.Label lblFiltro;
         private System.Windows.Forms.TextBox txtFiltro;
         private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Button btnDetalleArticulo;
     }
 }
 
