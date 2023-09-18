@@ -82,6 +82,7 @@ namespace WindowsFormsApp
         {
             indice = 0;
             btnCambiarImagen.Enabled = true;
+            if(dgvArticulos.CurrentRow != null)
             seleccion = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
             if (seleccion.UrlImagen != null)
             {
