@@ -28,6 +28,8 @@ namespace WindowsFormsApp
 
         private void DetalleArticulo_Load_1(object sender, EventArgs e)
         {
+            btnAnteriorDA.Enabled = false;
+            btnSiguienteDA.Enabled = false;
             if (articulo != null)
             {
                 lblNombreDA.Text = articulo.Nombre;
